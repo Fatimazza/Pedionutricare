@@ -3,7 +3,15 @@ package xyz.codingwithza.pedionutricare
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 
@@ -20,7 +28,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PedionutricareApp() {
+    Scaffold(
 
+    ) {
+        MainContent(innerPadding = it)
+    }
+}
+
+@Composable
+fun MainContent(
+    innerPadding: PaddingValues
+){
+    Box(
+        modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    )
+    {
+        Text("Hello World")
+    }
 }
 
 @Preview(showBackground = true)
