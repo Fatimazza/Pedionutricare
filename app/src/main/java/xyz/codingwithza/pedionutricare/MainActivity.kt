@@ -1,6 +1,7 @@
 package xyz.codingwithza.pedionutricare
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -20,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import xyz.codingwithza.pedionutricare.model.Menu
 import xyz.codingwithza.pedionutricare.model.MenuDataSource
 import xyz.codingwithza.pedionutricare.ui.components.ButtonImageMenu
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
@@ -66,13 +68,20 @@ fun MainContent(
     )
     {
         items(menuItems) { data ->
-            ButtonImageMenu(image = data.image, title = data.title, onClick = { openOtherScreen(data.id, context)})
+            ButtonImageMenu(image = data.image, title = data.title, onClick = { openOtherScreen(data, context)})
         }
     }
 }
 
-fun openOtherScreen(id: Long, context: Context) {
-    Toast.makeText(context, "Menu $id clicked", Toast.LENGTH_SHORT).show()
+fun openOtherScreen(data: Menu, context: Context) {
+    when(data.id.toInt()){
+        1 -> context.startActivity(Intent(context, NutritionNeedsActivity::class.java))
+        2 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
+        3 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
+        4 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
+        5 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
+        else  -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
+    }
 }
 
 @Preview(showBackground = true)
