@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pedionutricare</string>
+    <string name="title_activity_nutrition_needs">NutritionNeedsActivity</string>
 </resources>
