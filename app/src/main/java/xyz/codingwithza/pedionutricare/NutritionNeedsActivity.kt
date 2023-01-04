@@ -3,9 +3,8 @@ package xyz.codingwithza.pedionutricare
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
@@ -20,6 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.model.NeedsDataSource
+import xyz.codingwithza.pedionutricare.model.NutritionDataSource
+import xyz.codingwithza.pedionutricare.ui.components.TableCell
+import xyz.codingwithza.pedionutricare.ui.theme.DarkYellow
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 
 class NutritionNeedsActivity : ComponentActivity() {
@@ -49,6 +51,7 @@ fun NutritionNeeds(
     modifier: Modifier = Modifier
 ) {
     val needItems = NeedsDataSource.needItems
+    val nutritionItems = NutritionDataSource.nutritionItem
     LazyColumn(
         modifier.padding(16.dp)
     ) {
@@ -66,6 +69,9 @@ fun NutritionNeeds(
                 fontSize = 20.sp
             )
             if (index == 3 || index == 4) {
+                Spacer(
+                    modifier = modifier.height(18.dp)
+                )
                 NutritionNeedAdditional(index)
             }
             Spacer(
@@ -77,14 +83,25 @@ fun NutritionNeeds(
 
 @Composable
 fun NutritionNeedAdditional(index: Int) {
+    val nutritionItems = NutritionDataSource.nutritionItem
     when (index) {
         3 -> {
             Text(
-                text = "Something",
+                text = "Makanan Sumber Vitamin dan Mineral",
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp
             )
+            Row(Modifier.background(DarkYellow)) {
+                TableCell(text = "Zat Gizi", weight = 0.35f)
+                TableCell(text = "Sumber Makanan", weight = 0.65f)
+            }
+            nutritionItems.forEach{ item ->
+                Row(Modifier.fillMaxWidth()) {
+                    TableCell(text = item.nutrition, weight = 0.35f)
+                    TableCell(text = item.source, weight = 0.65f)
+                }
+            }
         }
         4 -> {
             Text(
