@@ -53,6 +53,7 @@ fun NutritionNeeds(
         modifier.padding(16.dp)
     ) {
         items(needItems) { data ->
+            val index = needItems.indexOf(data)
             Text(
                 text = data.title,
                 fontWeight = FontWeight.Bold,
@@ -64,8 +65,33 @@ fun NutritionNeeds(
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp
             )
+            if (index == 3 || index == 4) {
+                NutritionNeedAdditional(index)
+            }
             Spacer(
                 modifier = modifier.height(20.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun NutritionNeedAdditional(index: Int) {
+    when (index) {
+        3 -> {
+            Text(
+                text = "Something",
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
+            )
+        }
+        4 -> {
+            Text(
+                text = "Something Lagi",
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
             )
         }
     }
