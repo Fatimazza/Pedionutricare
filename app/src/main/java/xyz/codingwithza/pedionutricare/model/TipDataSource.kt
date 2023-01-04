@@ -73,18 +73,6 @@ object TipDataSource {
         ),
         Tip(
             7,
-            "Sembelit/Susah BAB",
-            "Neutropenia adalah kondisi dimana terjadi penurunan " +
-                    "kadar neutrophil (salah satu sel darah putih) dalam darah, " +
-                    "yang menyebabkan anak lebih rentan terkena infeksi, karena itu, " +
-                    "orang tua sebaiknya: \n",
-            "1) Menghindari pemberian daging, ikan dan telur yang mentah atau dimasak " +
-                    "secara tidak matang, susu, yoghurt, jus, dan madu " +
-                    "yang tidak di pasteurisasi/sterilisasi \n" +
-                    "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi"
-        ),
-        Tip(
-            8,
             "Neutropenia",
             "Neutropenia adalah kondisi dimana terjadi penurunan " +
                     "kadar neutrophil (salah satu sel darah putih) dalam darah, " +
@@ -96,7 +84,7 @@ object TipDataSource {
                     "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi"
         ),
         Tip(
-            9,
+            8,
             "Peningkatan Nafsu Makan",
             "",
             "1) Tetapkan waktu makan, berikan 3x makan utama dan 2x snack " +
