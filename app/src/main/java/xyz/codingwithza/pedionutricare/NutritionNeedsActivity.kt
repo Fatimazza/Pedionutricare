@@ -27,15 +27,11 @@ class NutritionNeedsActivity : ComponentActivity() {
 
 @Composable
 fun NutritionNeedsScreen() {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(stringResource(R.string.app_name))
-                }
-            )
-        }
-    ) {
+    Scaffold(topBar = {
+        TopAppBar(title = {
+            Text(stringResource(R.string.app_name))
+        })
+    }) {
         NutritionNeeds()
     }
 }
