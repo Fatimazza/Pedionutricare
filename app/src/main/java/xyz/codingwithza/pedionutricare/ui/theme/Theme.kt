@@ -27,15 +27,27 @@ private val LightColorPalette = lightColors(
     */
 )
 
+private val DarkYellowColorPalette = darkColors(
+    primary = DarkYellow,
+    primaryVariant = Yellow_Deep,
+    secondary = DarkGray
+)
+
+private val LightYellowColorPalette = lightColors(
+    primary = Yellow,
+    primaryVariant = Yellow_Deep,
+    secondary = White
+)
+
 @Composable
 fun PedionutricareTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        DarkColorPalette
+        DarkYellowColorPalette
     } else {
-        LightColorPalette
+        LightYellowColorPalette
     }
 
     MaterialTheme(
