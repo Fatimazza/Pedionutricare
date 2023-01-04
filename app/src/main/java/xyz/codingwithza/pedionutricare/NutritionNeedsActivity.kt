@@ -24,10 +24,14 @@ class NutritionNeedsActivity : ComponentActivity() {
 
 @Composable
 fun NutritionNeedsScreen() {
+    NutritionNeeds()
+}
+
+@Composable
+fun NutritionNeeds() {
     val needItems = NeedsDataSource.needItems
-    LazyColumn(){
-        items(needItems) {
-            data ->
+    LazyColumn() {
+        items(needItems) { data ->
             Text(data.title)
             Text(data.desc)
         }
