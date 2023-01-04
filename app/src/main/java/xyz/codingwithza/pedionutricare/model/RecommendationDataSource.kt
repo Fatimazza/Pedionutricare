@@ -24,7 +24,7 @@ object RecommendationDataSource {
             4,
             "Lemak",
             "minyak tak jenuh seperti minyak jagung dan minyak kedelai",
-            "-"
+            "tidak ada"
         ),
         Recommendation(
             5,
