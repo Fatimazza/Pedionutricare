@@ -11,7 +11,7 @@ object TipDataSource {
                     "3) Berikan makanan yang padat gizi (tinggi energi dan protein) dan snack \n" +
                     "4) Jangan memaksa anak untuk makan, " +
                     "ini mungkin dapat menyebabkan nafsu makannya menurun \n" +
-                    "5) Menjadikan waktu makan menyenangkan \n"
+                    "5) Menjadikan waktu makan menyenangkan"
         ),
         Tip(
             2,
@@ -19,15 +19,15 @@ object TipDataSource {
             "",
             "1) Memberikan makanan tinggi karbohidrat (crackers, roti panggang, biskuit) " +
                     "atau jus buah yang tidak asam \n" +
-                    "2) Berikan makanan dalam porsi kecil dan sering\n \n" +
-                    "3) Hidari makanan yang terlalu manis atau makanan yang tinggi lemak\n \n" +
+                    "2) Berikan makanan dalam porsi kecil dan sering \n" +
+                    "3) Hidari makanan yang terlalu manis atau makanan yang tinggi lemak \n" +
                     "4) Hidari ruangan yang terlalu panas atau ruangan yang dipenuhi bau makanan " +
-                    "yang mungkin merangsang mual\n \n" +
+                    "yang mungkin merangsang mual \n" +
                     "5) Ingatkan anak untuk sering minum cairan secara perlahan, " +
                     "penggunaan sedotan mungkin membantu \n" +
                     "6) Berikan waktu istirahat setelah makan \n" +
                     "7) Hindari memberikan makanan pada saat mual karena dapat menyebabkan " +
-                    "anak tidak suka makanan tersebut secara permanen (trauma). \n"
+                    "anak tidak suka makanan tersebut secara permanen (trauma)."
         ),
         Tip(
             3,
@@ -37,7 +37,7 @@ object TipDataSource {
                     "dan rendah laktosa (batasi susu maksimal 2 gelas per hari) \n" +
                     "2) Menyajikan makanan dalam kondisi suhu ruang karena makanan " +
                     "yang panas dapat mempercepat pengosongan lambung \n" +
-                    "3) Berikan cairan yang cukup untuk mencegah dehidrasi \n"
+                    "3) Berikan cairan yang cukup untuk mencegah dehidrasi"
         ),
         Tip(
             4,
@@ -45,7 +45,7 @@ object TipDataSource {
             "",
             "1) Berikan cairan yang cukup \n" +
                     "2) Berikan minuman yang hangat untuk meningkatkan aktivitas lambung \n" +
-                    "3) Berikan makanan tinggi serat (sayur, buah dan kacang-kacangan) \n"
+                    "3) Berikan makanan tinggi serat (sayur, buah dan kacang-kacangan)"
         ),
         Tip(
             5,
@@ -56,7 +56,7 @@ object TipDataSource {
                     "2) Memberikan makanan yang lunak dan dingin seperti es krim, yoghurt dingin, " +
                     "atau makanan yang lembut seperti sup krim \n" +
                     "3) Ingatkan anak untuk sering mencuci mulut untuk membersihkan " +
-                    "sisa makanan dan bakteri sehingga mempercepat penyembuhan \n"
+                    "sisa makanan dan bakteri sehingga mempercepat penyembuhan"
         ),
         Tip(
             6,
@@ -69,7 +69,7 @@ object TipDataSource {
                     "3) Memberikan anak minuman yang memiliki rasa \n" +
                     "4) Menyajikan minuman bersama dengan makanan " +
                     "untuk menghilangkan rasa yang tidak enak di mulut \n" +
-                    "5) Mendorong anak untuk memperhatikan kebersihan mulut \n"
+                    "5) Mendorong anak untuk memperhatikan kebersihan mulut"
         ),
         Tip(
             7,
@@ -81,7 +81,7 @@ object TipDataSource {
             "1) Menghindari pemberian daging, ikan dan telur yang mentah atau dimasak " +
                     "secara tidak matang, susu, yoghurt, jus, dan madu " +
                     "yang tidak di pasteurisasi/sterilisasi \n" +
-                    "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi \n"
+                    "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi"
         ),
         Tip(
             8,
@@ -93,7 +93,7 @@ object TipDataSource {
             "1) Menghindari pemberian daging, ikan dan telur yang mentah atau dimasak " +
                     "secara tidak matang, susu, yoghurt, jus, dan madu " +
                     "yang tidak di pasteurisasi/sterilisasi \n" +
-                    "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi \n"
+                    "2) Mencuci bersih sayuran dan buah-buah sebelum dikonsumsi"
         ),
         Tip(
             9,
@@ -108,7 +108,7 @@ object TipDataSource {
                     "4) Memberikan snack yang sehat, kurangi makanan tinggi gula \n" +
                     "5) Batasi acara TV atau menonton video yang berkaitan dengan makanan \n" +
                     "6) Batasi pemberian minuman manis dan jus \n" +
-                    "7) Ajak anak jalan-jalan dan tetap aktif bermain, kurangi penggunaan gadget \n"
+                    "7) Ajak anak jalan-jalan dan tetap aktif bermain, kurangi penggunaan gadget"
         ),
     )
 }
