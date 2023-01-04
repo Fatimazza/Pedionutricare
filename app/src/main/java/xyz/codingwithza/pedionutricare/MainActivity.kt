@@ -76,7 +76,7 @@ fun MainContent(
 fun openOtherScreen(data: Menu, context: Context) {
     when(data.id.toInt()){
         1 -> context.startActivity(Intent(context, NutritionNeedsActivity::class.java))
-        2 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
+        2 -> context.startActivity(Intent(context, NutritionTipActivity::class.java))
         3 -> context.startActivity(Intent(context, FoodRecommendationActivity::class.java))
         5 -> Toast.makeText(context, "Menu ${data.id} clicked", Toast.LENGTH_SHORT).show()
         else  -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
