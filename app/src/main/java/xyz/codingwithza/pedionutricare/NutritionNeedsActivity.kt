@@ -99,7 +99,7 @@ fun NutritionNeedAdditional(index: Int) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun NutritionNeedsPreview() {
     PedionutricareTheme {
         NutritionNeedsScreen()
     }
