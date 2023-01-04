@@ -51,7 +51,6 @@ fun NutritionNeeds(
     modifier: Modifier = Modifier
 ) {
     val needItems = NeedsDataSource.needItems
-    val nutritionItems = NutritionDataSource.nutritionItem
     LazyColumn(
         modifier.padding(16.dp)
     ) {
