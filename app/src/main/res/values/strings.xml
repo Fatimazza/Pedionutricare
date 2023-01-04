@@ -3,4 +3,5 @@
     <string name="title_activity_nutrition_needs">NutritionNeedsActivity</string>
     <string name="title_activity_food_recommendation">FoodRecommendationActivity</string>
     <string name="title_activity_nutrition_tip">NutritionTipActivity</string>
+    <string name="title_activity_food_sample">FoodSampleActivity</string>
 </resources>
