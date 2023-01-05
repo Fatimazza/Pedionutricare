@@ -86,6 +86,8 @@ fun NutritionNeeds(
 fun NutritionNeedAdditional(index: Int) {
     val nutritionItems = NutritionDataSource.nutritionItem
     val fluidItems = FluidsDataSource.fluidItems
+    val columnNut1Weight = 0.35f
+    val columnNut2Weight = 0.65f
     when (index) {
         3 -> {
             Text(
@@ -95,13 +97,13 @@ fun NutritionNeedAdditional(index: Int) {
                 fontSize = 20.sp
             )
             Row(Modifier.background(DarkYellow)) {
-                TableCell(text = "Zat Gizi", weight = 0.35f)
-                TableCell(text = "Sumber Makanan", weight = 0.65f)
+                TableCell(text = "Zat Gizi", columnNut1Weight)
+                TableCell(text = "Sumber Makanan", columnNut2Weight)
             }
             nutritionItems.forEach{ item ->
                 Row(Modifier.fillMaxWidth()) {
-                    TableCell(text = item.nutrition, weight = 0.35f)
-                    TableCell(text = item.source, weight = 0.65f)
+                    TableCell(text = item.nutrition, columnNut1Weight)
+                    TableCell(text = item.source, columnNut2Weight)
                 }
             }
         }
