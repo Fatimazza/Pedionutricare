@@ -61,6 +61,7 @@ fun MainContent(
 ) {
     val menuItems = MenuDataSource.menuItems
     val context = LocalContext.current
+    val version = BuildConfig.VERSION_NAME
 
     LazyColumn(
         modifier = modifier
@@ -75,7 +76,7 @@ fun MainContent(
         }
         item {
             Text(
-                text = "Versi 1.0.0",
+                text = "Versi $version",
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp,
