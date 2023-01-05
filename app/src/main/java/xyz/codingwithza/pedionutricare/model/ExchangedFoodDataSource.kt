@@ -4,6 +4,31 @@ object ExchangedFoodDataSource {
     val exchangedItems = listOf(
         Exchanged(
             1,
+            "BAHAN MAKANAN SUMBER KARBOHIDRAT",
+            listOf(
+                Category(
+                    1,
+                    "",
+                    "1 Satuan Penukar = 175 Kalori dan 4 g Protein dan 40 g karbohidrat.",
+                    listOf(
+                        Ingredients(
+                            1,
+                            "Bihun",
+                            50,
+                            "1/2 gls"
+                        ),
+                        Ingredients(
+                            2,
+                            "Bubur Beras",
+                            400,
+                            "2 gls"
+                        )
+                    )
+                )
+            )
+        ),
+        Exchanged(
+            2,
             "SUSU DAN OLAHANNYA",
             listOf(
                 Category(
