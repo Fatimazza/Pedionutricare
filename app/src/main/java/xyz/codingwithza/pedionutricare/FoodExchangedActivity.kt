@@ -57,6 +57,19 @@ fun FoodExchanged(
         val columnEx2Weight = 0.2f
         val columnEx3Weight = 0.28f
 
+        item {
+            Text(
+                text = "Bahan Makanan Penukar " +
+                        "\n Ukuran Rumah Tangga (URT)",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 22.sp,
+                modifier = modifier.fillMaxWidth(),
+            )
+            Spacer(
+                modifier = modifier.height(16.dp)
+            )
+        }
         items(exchangedItems) { data ->
             Text(
                 text = data.title,
@@ -98,6 +111,9 @@ fun FoodExchanged(
                     modifier = modifier.height(12.dp)
                 )
             }
+            Spacer(
+                modifier = modifier.height(12.dp)
+            )
         }
     }
 }
