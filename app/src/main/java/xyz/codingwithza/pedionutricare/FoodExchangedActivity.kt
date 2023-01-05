@@ -68,12 +68,14 @@ fun FoodExchanged(
                 modifier = modifier.height(12.dp)
             )
             data.foods.forEach { item ->
-                Text(
-                    text = item.title,
-                    textAlign = TextAlign.Justify,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 22.sp
-                )
+                if (item.title.isNotEmpty()) {
+                    Text(
+                        text = item.title,
+                        textAlign = TextAlign.Justify,
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 22.sp
+                    )
+                }
                 Text(
                     text = item.desc,
                     textAlign = TextAlign.Justify,
