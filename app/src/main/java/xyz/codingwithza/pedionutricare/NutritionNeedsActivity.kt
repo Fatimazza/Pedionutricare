@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import xyz.codingwithza.pedionutricare.model.FluidsDataSource
 import xyz.codingwithza.pedionutricare.model.NeedsDataSource
 import xyz.codingwithza.pedionutricare.model.NutritionDataSource
 import xyz.codingwithza.pedionutricare.ui.components.TableCell
@@ -83,6 +84,7 @@ fun NutritionNeeds(
 @Composable
 fun NutritionNeedAdditional(index: Int) {
     val nutritionItems = NutritionDataSource.nutritionItem
+    val fluidItems = FluidsDataSource.fluidItems
     when (index) {
         3 -> {
             Text(
@@ -103,7 +105,18 @@ fun NutritionNeedAdditional(index: Int) {
             }
         }
         4 -> {
-
+            Row(Modifier.background(DarkYellow)) {
+                TableCell(text = "Usia", weight = 0.28f)
+                TableCell(text = "Laki - Laki", weight = 0.36f)
+                TableCell(text = "Perempuan", weight = 0.36f)
+            }
+            fluidItems.forEach{ item ->
+                Row(Modifier.fillMaxWidth()) {
+                    TableCell(text = item.age, weight = 0.28f)
+                    TableCell(text = item.male, weight = 0.36f)
+                    TableCell(text = item.female, weight = 0.36f)
+                }
+            }
         }
     }
 }
