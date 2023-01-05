@@ -117,10 +117,10 @@ fun NutritionNeedAdditional(index: Int) {
                 TableCell(text = "Perempuan", columnFluid2Weight)
             }
             fluidItems.forEach { item ->
-                val index = fluidItems.indexOf(item)
+                val indexFluid = fluidItems.indexOf(item)
                 Row(Modifier.fillMaxWidth()) {
                     TableCell(text = item.age, columnFluid1Weight)
-                    if (index <= 3) {
+                    if (indexFluid <= 3) {
                         TableCellCenter(
                             text = item.male, weight = columnFluid3Weight,
                         )
