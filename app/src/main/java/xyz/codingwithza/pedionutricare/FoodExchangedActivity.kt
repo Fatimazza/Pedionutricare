@@ -53,6 +53,10 @@ fun FoodExchanged(
         modifier.padding(16.dp)
     ) {
         val exchangedItems = ExchangedFoodDataSource.exchangedItems
+        val columnEx1Weight = 0.52f
+        val columnEx2Weight = 0.2f
+        val columnEx3Weight = 0.28f
+
         items(exchangedItems) { data ->
             Text(
                 text = data.title,
@@ -77,15 +81,15 @@ fun FoodExchanged(
                     fontSize = 20.sp
                 )
                 Row(Modifier.background(DarkYellow)) {
-                    TableCell(text = "Bahan Makanan", weight = 0.52f)
-                    TableCell(text = "Berat", weight = 0.2f)
-                    TableCell(text = "URT", weight = 0.28f)
+                    TableCell(text = "Bahan Makanan", columnEx1Weight)
+                    TableCell(text = "Berat", columnEx2Weight)
+                    TableCell(text = "URT", columnEx3Weight)
                 }
                 item.foods.forEach {
                     Row(Modifier.fillMaxWidth()) {
-                        TableCell(text = it.bahan, weight = 0.52f)
-                        TableCell(text = "${it.gram} g", weight = 0.2f)
-                        TableCell(text = it.URT, weight = 0.28f)
+                        TableCell(text = it.bahan, columnEx1Weight)
+                        TableCell(text = "${it.gram} g", columnEx2Weight)
+                        TableCell(text = it.URT, columnEx3Weight)
                     }
                 }
                 Spacer(
