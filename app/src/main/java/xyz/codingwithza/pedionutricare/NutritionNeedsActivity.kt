@@ -88,6 +88,9 @@ fun NutritionNeedAdditional(index: Int) {
     val fluidItems = FluidsDataSource.fluidItems
     val columnNut1Weight = 0.35f
     val columnNut2Weight = 0.65f
+    val columnFluid1Weight = 0.28f
+    val columnFluid2Weight = 0.36f
+    val columnFluid3Weight = 0.72f
     when (index) {
         3 -> {
             Text(
@@ -109,21 +112,21 @@ fun NutritionNeedAdditional(index: Int) {
         }
         4 -> {
             Row(Modifier.background(DarkYellow)) {
-                TableCell(text = "Usia", weight = 0.28f)
-                TableCell(text = "Laki - Laki", weight = 0.36f)
-                TableCell(text = "Perempuan", weight = 0.36f)
+                TableCell(text = "Usia", columnFluid1Weight)
+                TableCell(text = "Laki - Laki", columnFluid2Weight)
+                TableCell(text = "Perempuan", columnFluid2Weight)
             }
             fluidItems.forEach { item ->
                 val index = fluidItems.indexOf(item)
                 Row(Modifier.fillMaxWidth()) {
-                    TableCell(text = item.age, weight = 0.28f)
+                    TableCell(text = item.age, columnFluid1Weight)
                     if (index <= 3) {
                         TableCellCenter(
-                            text = item.male, weight = 0.72f,
+                            text = item.male, weight = columnFluid3Weight,
                         )
                     } else {
-                        TableCell(text = item.male, weight = 0.36f)
-                        TableCell(text = item.female, weight = 0.36f)
+                        TableCell(text = item.male, columnFluid2Weight)
+                        TableCell(text = item.female, columnFluid2Weight)
                     }
                 }
             }
