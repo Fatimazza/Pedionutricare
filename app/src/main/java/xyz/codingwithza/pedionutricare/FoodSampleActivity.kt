@@ -77,6 +77,9 @@ fun FoodSample(
                 fontSize = 22.sp
             )
             data.foods.forEach { item ->
+                Spacer(
+                    modifier = modifier.height(12.dp)
+                )
                 Text(
                     text = item.name,
                     textAlign = TextAlign.Justify,
