@@ -1,6 +1,6 @@
 package xyz.codingwithza.pedionutricare.model
 
-class FluidsDataSource {
+object FluidsDataSource {
     val fluidItems = listOf(
         Fluids(
             1,
