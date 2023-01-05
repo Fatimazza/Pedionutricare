@@ -19,8 +19,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.model.Menu
 import xyz.codingwithza.pedionutricare.model.MenuDataSource
 import xyz.codingwithza.pedionutricare.ui.components.ButtonImageMenu
@@ -69,6 +72,15 @@ fun MainContent(
     {
         items(menuItems) { data ->
             ButtonImageMenu(image = data.image, title = data.title, onClick = { openOtherScreen(data, context)})
+        }
+        item {
+            Text(
+                text = "Versi 1.0.0",
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 16.sp,
+                modifier = modifier.padding(8.dp)
+            )
         }
     }
 }
