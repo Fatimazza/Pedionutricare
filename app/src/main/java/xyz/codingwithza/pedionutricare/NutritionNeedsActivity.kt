@@ -22,6 +22,7 @@ import xyz.codingwithza.pedionutricare.model.FluidsDataSource
 import xyz.codingwithza.pedionutricare.model.NeedsDataSource
 import xyz.codingwithza.pedionutricare.model.NutritionDataSource
 import xyz.codingwithza.pedionutricare.ui.components.TableCell
+import xyz.codingwithza.pedionutricare.ui.components.TableCellCenter
 import xyz.codingwithza.pedionutricare.ui.theme.DarkYellow
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 
@@ -110,11 +111,18 @@ fun NutritionNeedAdditional(index: Int) {
                 TableCell(text = "Laki - Laki", weight = 0.36f)
                 TableCell(text = "Perempuan", weight = 0.36f)
             }
-            fluidItems.forEach{ item ->
+            fluidItems.forEach { item ->
+                val index = fluidItems.indexOf(item)
                 Row(Modifier.fillMaxWidth()) {
                     TableCell(text = item.age, weight = 0.28f)
-                    TableCell(text = item.male, weight = 0.36f)
-                    TableCell(text = item.female, weight = 0.36f)
+                    if (index <= 3) {
+                        TableCellCenter(
+                            text = item.male, weight = 0.72f,
+                        )
+                    } else {
+                        TableCell(text = item.male, weight = 0.36f)
+                        TableCell(text = item.female, weight = 0.36f)
+                    }
                 }
             }
         }

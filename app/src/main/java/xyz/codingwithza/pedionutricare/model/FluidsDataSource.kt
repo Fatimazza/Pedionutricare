@@ -17,14 +17,14 @@ object FluidsDataSource {
         Fluids(
             3,
             "1 - 3 tahun",
-            "1300 ml/hari",
-            "1300 ml/hari"
+            "1300 ml/hari \n",
+            "1300 ml/hari \n"
         ),
         Fluids(
             4,
             "4 - 8 tahun",
-            "1700 ml/hari",
-            "1700 ml/hari"
+            "1700 ml/hari \n",
+            "1700 ml/hari \n"
         ),
         Fluids(
             5,
