@@ -53,6 +53,9 @@ fun FoodSample(
         modifier.padding(16.dp)
     ) {
         val foodSamples = FoodSampleDataSource.sampleItems
+        val columnFood1Weight = 0.5f
+        val columnFood2Weight = 0.2f
+        val columnFood3Weight = 0.3f
 
         item {
             Text(
@@ -81,15 +84,15 @@ fun FoodSample(
                     fontSize = 22.sp
                 )
                 Row(Modifier.background(DarkYellow)) {
-                    TableCell(text = "Bahan", weight = 0.5f)
-                    TableCell(text = "gram", weight = 0.2f)
-                    TableCell(text = "URT", weight = 0.3f)
+                    TableCell(text = "Bahan", columnFood1Weight)
+                    TableCell(text = "gram", columnFood2Weight)
+                    TableCell(text = "URT", columnFood3Weight)
                 }
                 item.ingredients.forEach {
                     Row(Modifier.fillMaxWidth()) {
-                        TableCell(text = it.bahan, weight = 0.5f)
-                        TableCell(text = it.gram.toString(), weight = 0.2f)
-                        TableCell(text = it.URT, weight = 0.3f)
+                        TableCell(text = it.bahan, columnFood1Weight)
+                        TableCell(text = it.gram.toString(), columnFood2Weight)
+                        TableCell(text = it.URT, columnFood3Weight)
                     }
                 }
             }
