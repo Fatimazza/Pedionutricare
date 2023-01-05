@@ -103,12 +103,7 @@ fun NutritionNeedAdditional(index: Int) {
             }
         }
         4 -> {
-            Text(
-                text = "Something Lagi",
-                textAlign = TextAlign.Justify,
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
-            )
+
         }
     }
 }
