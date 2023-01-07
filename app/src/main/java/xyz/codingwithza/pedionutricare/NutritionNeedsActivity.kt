@@ -18,11 +18,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import xyz.codingwithza.pedionutricare.model.FluidsDataSource
 import xyz.codingwithza.pedionutricare.model.NeedsDataSource
 import xyz.codingwithza.pedionutricare.model.NutritionDataSource
 import xyz.codingwithza.pedionutricare.ui.components.TableCell
-import xyz.codingwithza.pedionutricare.ui.components.TableCellCenter
 import xyz.codingwithza.pedionutricare.ui.theme.DarkYellow
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 
@@ -85,12 +83,8 @@ fun NutritionNeeds(
 @Composable
 fun NutritionNeedAdditional(index: Int) {
     val nutritionItems = NutritionDataSource.nutritionItem
-    val fluidItems = FluidsDataSource.fluidItems
     val columnNut1Weight = 0.35f
     val columnNut2Weight = 0.65f
-    val columnFluid1Weight = 0.28f
-    val columnFluid2Weight = 0.36f
-    val columnFluid3Weight = 0.72f
     when (index) {
         3 -> {
             Text(
@@ -111,25 +105,6 @@ fun NutritionNeedAdditional(index: Int) {
             }
         }
         4 -> {
-            Row(Modifier.background(DarkYellow)) {
-                TableCell(text = "Usia", columnFluid1Weight)
-                TableCell(text = "Laki - Laki", columnFluid2Weight)
-                TableCell(text = "Perempuan", columnFluid2Weight)
-            }
-            fluidItems.forEach { item ->
-                val indexFluid = fluidItems.indexOf(item)
-                Row(Modifier.fillMaxWidth()) {
-                    TableCell(text = item.age, columnFluid1Weight)
-                    if (indexFluid <= 3) {
-                        TableCellCenter(
-                            text = item.male, weight = columnFluid3Weight,
-                        )
-                    } else {
-                        TableCell(text = item.male, columnFluid2Weight)
-                        TableCell(text = item.female, columnFluid2Weight)
-                    }
-                }
-            }
         }
     }
 }
