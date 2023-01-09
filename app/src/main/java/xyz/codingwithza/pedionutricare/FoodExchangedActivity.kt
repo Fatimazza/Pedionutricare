@@ -3,6 +3,7 @@ package xyz.codingwithza.pedionutricare
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +15,8 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -22,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.model.ExchangeFood
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodDataSource
+import xyz.codingwithza.pedionutricare.model.ExchangeFoodImage
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
@@ -85,7 +89,7 @@ fun FoodExchangedItem(
                 )
             }
             if (expanded) {
-                ExchangedFoodDesc()
+                ExchangedFoodDesc(data.images)
             }
         }
     }
@@ -93,6 +97,7 @@ fun FoodExchangedItem(
 
 @Composable
 fun ExchangedFoodDesc(
+    images: List<ExchangeFoodImage>,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -103,7 +108,17 @@ fun ExchangedFoodDesc(
             end = 16.dp
         )
     ) {
-
+        images.forEach { image ->
+            val painter = painterResource(id = image.image)
+            Image(
+                painter = painter,
+                contentDescription = "Exchanged Food Image",
+                modifier = modifier
+                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Fit
+            )
+        }
     }
 }
 
