@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import xyz.codingwithza.pedionutricare.model.Needs
 import xyz.codingwithza.pedionutricare.model.NeedsDataSource
 import xyz.codingwithza.pedionutricare.model.NutritionDataSource
 import xyz.codingwithza.pedionutricare.ui.components.TableCell
@@ -39,45 +40,49 @@ class NutritionNeedsActivity : ComponentActivity() {
 }
 
 @Composable
-fun NutritionNeedsScreen() {
+fun NutritionNeedsScreen(
+    modifier: Modifier = Modifier
+) {
     Scaffold(topBar = {
         TopAppBar(title = {
             Text(stringResource(R.string.app_name))
         })
     }) {
-        NutritionNeeds()
+        val needItems = NeedsDataSource.needItems
+        LazyColumn(
+            modifier.padding(16.dp)
+        ) {
+            items(needItems) { data ->
+                NutritionNeeds(needItems, data)
+            }
+        }
     }
 }
 
 @Composable
 fun NutritionNeeds(
+    needItems: List<Needs>,
+    data: Needs,
     modifier: Modifier = Modifier
 ) {
-    val needItems = NeedsDataSource.needItems
-    LazyColumn(
-        modifier.padding(16.dp)
-    ) {
-        items(needItems) { data ->
-            val index = needItems.indexOf(data)
-            Text(
-                text = data.title,
-                fontWeight = FontWeight.Bold,
-                fontSize = 22.sp
-            )
-            Text(
-                text = data.desc,
-                textAlign = TextAlign.Justify,
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
-            )
-            if (index == 3 || index == 4) {
-                NutritionNeedAdditional(index)
-            }
-            Spacer(
-                modifier = modifier.height(20.dp)
-            )
-        }
+    val index = needItems.indexOf(data)
+    Text(
+        text = data.title,
+        fontWeight = FontWeight.Bold,
+        fontSize = 22.sp
+    )
+    Text(
+        text = data.desc,
+        textAlign = TextAlign.Justify,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
+    )
+    if (index == 3 || index == 4) {
+        NutritionNeedAdditional(index)
     }
+    Spacer(
+        modifier = modifier.height(20.dp)
+    )
 }
 
 @Composable
