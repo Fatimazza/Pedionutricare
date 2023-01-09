@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -27,6 +28,7 @@ import xyz.codingwithza.pedionutricare.model.NutritionDataSource
 import xyz.codingwithza.pedionutricare.ui.components.TableCell
 import xyz.codingwithza.pedionutricare.ui.theme.DarkYellow
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 
 class NutritionNeedsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +52,7 @@ fun NutritionNeedsScreen(
     }) {
         val needItems = NeedsDataSource.needItems
         LazyColumn(
-            modifier.padding(16.dp)
+            modifier.background(Yellow_Awake)
         ) {
             items(needItems) { data ->
                 NutritionNeeds(needItems, data)
@@ -66,23 +68,32 @@ fun NutritionNeeds(
     modifier: Modifier = Modifier
 ) {
     val index = needItems.indexOf(data)
-    Text(
-        text = data.title,
-        fontWeight = FontWeight.Bold,
-        fontSize = 22.sp
-    )
-    Text(
-        text = data.desc,
-        textAlign = TextAlign.Justify,
-        fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
-    )
-    if (index == 3 || index == 4) {
-        NutritionNeedAdditional(index)
+    Card(
+        modifier = modifier.padding(8.dp),
+        elevation = 4.dp
+    ) {
+        Column(
+            modifier.padding(8.dp)
+        ){
+            Text(
+                text = data.title,
+                fontWeight = FontWeight.Bold,
+                fontSize = 22.sp
+            )
+            Text(
+                text = data.desc,
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
+            )
+            if (index == 3 || index == 4) {
+                NutritionNeedAdditional(index)
+            }
+            Spacer(
+                modifier = modifier.height(20.dp)
+            )
+        }
     }
-    Spacer(
-        modifier = modifier.height(20.dp)
-    )
 }
 
 @Composable
