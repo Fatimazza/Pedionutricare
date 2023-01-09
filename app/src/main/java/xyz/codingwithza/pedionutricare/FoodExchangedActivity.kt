@@ -11,7 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -60,6 +60,7 @@ fun FoodExchangedItem(
     data: ExchangeFood,
     modifier: Modifier = Modifier
 ) {
+    var expanded by remember { mutableStateOf(false) }
     Card(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
@@ -79,9 +80,12 @@ fun FoodExchangedItem(
                 )
                 Spacer(Modifier.weight(1f))
                 FoodExchangedButton(
-                    expanded = true,
-                    onClick = {}
+                    expanded = expanded,
+                    onClick = {expanded = !expanded}
                 )
+            }
+            if (expanded) {
+
             }
         }
     }
