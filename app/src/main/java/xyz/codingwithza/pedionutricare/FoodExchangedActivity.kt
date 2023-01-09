@@ -85,9 +85,25 @@ fun FoodExchangedItem(
                 )
             }
             if (expanded) {
-
+                ExchangedFoodDesc()
             }
         }
+    }
+}
+
+@Composable
+fun ExchangedFoodDesc(
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.padding(
+            start = 16.dp,
+            top = 8.dp,
+            bottom = 16.dp,
+            end = 16.dp
+        )
+    ) {
+
     }
 }
 
