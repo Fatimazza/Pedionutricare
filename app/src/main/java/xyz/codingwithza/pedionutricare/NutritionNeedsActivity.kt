@@ -89,9 +89,7 @@ fun NutritionNeeds(
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp
             )
-            if (index == 3 || index == 4) {
-                NutritionNeedAdditional(index)
-            }
+            NutritionNeedAdditional(index)
         }
     }
 }
@@ -105,6 +103,39 @@ fun NutritionNeedAdditional(
     val columnNut1Weight = 0.35f
     val columnNut2Weight = 0.65f
     when (index) {
+        0 -> {
+            val painter  = painterResource(id = R.drawable.img_carbo)
+            Image(
+                painter = painter,
+                contentDescription = "Gambar Karbohidrat",
+                modifier = modifier
+                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Fit
+            )
+        }
+        1 -> {
+            val painter  = painterResource(id = R.drawable.img_protein)
+            Image(
+                painter = painter,
+                contentDescription = "Gambar Protein",
+                modifier = modifier
+                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Fit
+            )
+        }
+        2 -> {
+            val painter  = painterResource(id = R.drawable.img_fat)
+            Image(
+                painter = painter,
+                contentDescription = "Gambar Lemak",
+                modifier = modifier
+                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Fit
+            )
+        }
         3 -> {
             Spacer(
                 modifier = modifier.height(18.dp)
