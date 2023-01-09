@@ -79,6 +79,15 @@ fun FoodExchangedItem(
     }
 }
 
+@Composable
+private fun FoodExchangedButton(
+    expanded: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+
+}
+
 @Preview(showBackground = true)
 @Composable
 fun FoodExchangedPreview() {
