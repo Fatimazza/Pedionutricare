@@ -80,6 +80,9 @@ fun NutritionNeeds(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             )
+            Spacer(
+                modifier = modifier.height(20.dp)
+            )
             Text(
                 text = data.desc,
                 textAlign = TextAlign.Justify,
@@ -89,9 +92,6 @@ fun NutritionNeeds(
             if (index == 3 || index == 4) {
                 NutritionNeedAdditional(index)
             }
-            Spacer(
-                modifier = modifier.height(20.dp)
-            )
         }
     }
 }
