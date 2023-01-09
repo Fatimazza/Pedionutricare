@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.model.ExchangeFood
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodDataSource
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
 class FoodExchangedActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +75,11 @@ fun FoodExchangedItem(
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp
                 )
+                Spacer(Modifier.weight(1f))
+                FoodExchangedButton(
+                    expanded = true,
+                    onClick = {}
+                )
             }
         }
     }
@@ -83,9 +89,15 @@ fun FoodExchangedItem(
 private fun FoodExchangedButton(
     expanded: Boolean,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
-
+    IconButton(onClick = onClick) {
+        Icon(
+            imageVector = if (expanded) Icons.Filled.ExpandLess
+            else Icons.Filled.ExpandMore,
+            tint = Yellow_Deep,
+            contentDescription = "Exchanged Food Expand Button"
+        )
+    }
 }
 
 @Preview(showBackground = true)
