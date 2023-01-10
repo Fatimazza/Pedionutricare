@@ -27,6 +27,7 @@ import xyz.codingwithza.pedionutricare.model.ExchangeFood
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodDataSource
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodImage
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
 class FoodExchangedActivity : ComponentActivity() {
@@ -41,15 +42,19 @@ class FoodExchangedActivity : ComponentActivity() {
 }
 
 @Composable
-fun FoodExchangedScreen() {
-    Scaffold(topBar = {
-        TopAppBar(title = {
-            Text(stringResource(R.string.app_name))
-        })
-    }) {
+fun FoodExchangedScreen(
+    modifier: Modifier = Modifier
+) {
+    Scaffold(
+        topBar = {
+            TopAppBar(title = {
+                Text(stringResource(R.string.app_name))
+            })
+        },
+    ) {
         val exchangedItems = ExchangeFoodDataSource.exchangedItems
         LazyColumn(
-            modifier = Modifier.background(MaterialTheme.colors.background)
+            modifier.fillMaxSize().background(Yellow_Awake)
         ) {
             items(exchangedItems) { data ->
                 FoodExchangedItem(exchangedItems, data)
