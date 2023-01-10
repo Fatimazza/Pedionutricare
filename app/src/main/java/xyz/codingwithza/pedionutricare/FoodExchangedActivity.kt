@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -78,6 +79,7 @@ fun FoodExchangedItem(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .clickable { expanded = !expanded }
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -90,7 +92,7 @@ fun FoodExchangedItem(
                 Spacer(Modifier.weight(1f))
                 FoodExchangedButton(
                     expanded = expanded,
-                    onClick = {expanded = !expanded}
+                    onClick = { expanded = !expanded }
                 )
             }
             if (expanded) {
