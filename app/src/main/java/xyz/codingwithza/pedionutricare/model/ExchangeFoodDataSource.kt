@@ -21,10 +21,10 @@ object ExchangeFoodDataSource {
                     1, R.drawable.img_ex_prohe_1
                 ),
                 ExchangeFoodImage(
-                    1, R.drawable.img_ex_prohe_2
+                    2, R.drawable.img_ex_prohe_2
                 ),
                 ExchangeFoodImage(
-                    1, R.drawable.img_ex_prohe_3
+                    3, R.drawable.img_ex_prohe_3
                 )
             )
         ),
@@ -39,6 +39,30 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             4,
+            "Sayuran",
+            listOf(
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_veg_1
+                ),
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_veg_2
+                ),
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_veg_3
+                )
+            )
+        ),
+        ExchangeFood(
+            5,
+            "Buah dan Gula",
+            listOf(
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_buah
+                )
+            )
+        ),
+        ExchangeFood(
+            6,
             "Susu dan Olahannya",
             listOf(
                 ExchangeFoodImage(
@@ -49,6 +73,24 @@ object ExchangeFoodDataSource {
                 ),
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_milk_3
+                )
+            )
+        ),
+        ExchangeFood(
+            7,
+            "Minyak dan Lemak",
+            listOf(
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_fat
+                )
+            )
+        ),
+        ExchangeFood(
+            8,
+            "Makanan Tanpa Kalori",
+            listOf(
+                ExchangeFoodImage(
+                    1, R.drawable.img_ex_no_calory
                 )
             )
         )
