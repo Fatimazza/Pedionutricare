@@ -12,7 +12,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -64,6 +64,7 @@ fun NutritionTip(
     data: Tip,
     modifier: Modifier = Modifier
 ) {
+    var expanded by remember { mutableStateOf(false) }
     Card(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
@@ -72,7 +73,7 @@ fun NutritionTip(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable {  }
+                    .clickable { expanded = !expanded }
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -84,11 +85,13 @@ fun NutritionTip(
                 )
                 Spacer(Modifier.weight(1f))
                 NutritionTipButton(
-                    expanded = false,
-                    onClick = {  }
+                    expanded = expanded,
+                    onClick = { expanded = !expanded }
                 )
             }
-            NutritionTipDesc(data)
+            if (expanded) {
+                NutritionTipDesc(data)
+            }
         }
     }
 }
