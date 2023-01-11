@@ -74,27 +74,35 @@ fun NutritionTip(
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp
             )
-            if (data.desc.isNotEmpty()) {
-                Text(
-                    text = data.desc,
-                    textAlign = TextAlign.Justify,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 20.sp,
-                    lineHeight = 25.sp,
-                )
-            }
-            Text(
-                text = data.point,
-                textAlign = TextAlign.Justify,
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp,
-                lineHeight = 25.sp
-            )
-            Spacer(
-                modifier = modifier.height(20.dp)
-            )
+            NutritionTipDesc(data)
         }
     }
+}
+
+@Composable
+fun NutritionTipDesc(
+    data: Tip,
+    modifier: Modifier = Modifier
+){
+    if (data.desc.isNotEmpty()) {
+        Text(
+            text = data.desc,
+            textAlign = TextAlign.Justify,
+            fontWeight = FontWeight.Normal,
+            fontSize = 20.sp,
+            lineHeight = 25.sp,
+        )
+    }
+    Text(
+        text = data.point,
+        textAlign = TextAlign.Justify,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp,
+        lineHeight = 25.sp
+    )
+    Spacer(
+        modifier = modifier.height(20.dp)
+    )
 }
 
 @Preview(showBackground = true)
