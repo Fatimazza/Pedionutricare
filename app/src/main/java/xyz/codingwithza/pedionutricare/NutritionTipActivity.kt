@@ -10,10 +10,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -26,6 +26,7 @@ import xyz.codingwithza.pedionutricare.model.Tip
 import xyz.codingwithza.pedionutricare.model.TipDataSource
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
 class NutritionTipActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,6 +104,21 @@ fun NutritionTipDesc(
     Spacer(
         modifier = modifier.height(20.dp)
     )
+}
+
+@Composable
+private fun FoodExchangedButton(
+    expanded: Boolean,
+    onClick: () -> Unit,
+) {
+    IconButton(onClick = onClick) {
+        Icon(
+            imageVector = if (expanded) Icons.Filled.ExpandLess
+            else Icons.Filled.ExpandMore,
+            tint = Yellow_Deep,
+            contentDescription = "Nutrition Tip Expand Button"
+        )
+    }
 }
 
 @Preview(showBackground = true)
