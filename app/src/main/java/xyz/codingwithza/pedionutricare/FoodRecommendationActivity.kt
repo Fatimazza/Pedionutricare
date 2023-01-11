@@ -4,10 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -61,40 +64,49 @@ fun FoodRecommendation(
     data: Recommendation,
     modifier: Modifier = Modifier
 ) {
-    Text(
-        text = data.title,
-        fontWeight = FontWeight.Bold,
-        fontSize = 24.sp
-    )
-    Text(
-        text = "Dianjurkan:",
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp,
-        lineHeight = 30.sp
-    )
-    Text(
-        text = data.recommended,
-        textAlign = TextAlign.Justify,
-        fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
-        lineHeight = 25.sp
-    )
-    Text(
-        text = "Tidak Dianjurkan:",
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp,
-        lineHeight = 30.sp
-    )
-    Text(
-        text = data.notrecommended,
-        textAlign = TextAlign.Justify,
-        fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
-        lineHeight = 25.sp
-    )
-    Spacer(
-        modifier = modifier.height(20.dp)
-    )
+    Card(
+        modifier = modifier.padding(8.dp),
+        elevation = 4.dp
+    ) {
+        Column(
+            modifier.padding(8.dp)
+        ) {
+            Text(
+                text = data.title,
+                fontWeight = FontWeight.Bold,
+                fontSize = 24.sp
+            )
+            Text(
+                text = "Dianjurkan:",
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 20.sp,
+                lineHeight = 30.sp
+            )
+            Text(
+                text = data.recommended,
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                lineHeight = 25.sp
+            )
+            Text(
+                text = "Tidak Dianjurkan:",
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 20.sp,
+                lineHeight = 30.sp
+            )
+            Text(
+                text = data.notrecommended,
+                textAlign = TextAlign.Justify,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                lineHeight = 25.sp
+            )
+            Spacer(
+                modifier = modifier.height(20.dp)
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)
