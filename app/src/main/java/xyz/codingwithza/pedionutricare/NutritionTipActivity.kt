@@ -107,7 +107,7 @@ fun NutritionTipDesc(
 }
 
 @Composable
-private fun FoodExchangedButton(
+private fun NutritionTipButton(
     expanded: Boolean,
     onClick: () -> Unit,
 ) {
