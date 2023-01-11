@@ -76,6 +76,9 @@ fun FoodRecommendation(
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp
             )
+            Spacer(
+                modifier = modifier.height(20.dp)
+            )
             Text(
                 text = "Dianjurkan:",
                 fontWeight = FontWeight.SemiBold,
@@ -101,9 +104,6 @@ fun FoodRecommendation(
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 lineHeight = 25.sp
-            )
-            Spacer(
-                modifier = modifier.height(20.dp)
             )
         }
     }
