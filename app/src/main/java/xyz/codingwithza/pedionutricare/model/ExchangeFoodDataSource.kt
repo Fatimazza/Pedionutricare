@@ -33,7 +33,7 @@ object ExchangeFoodDataSource {
             "Protein Nabati",
             listOf(
                 ExchangeFoodImage(
-                    1, R.drawable.img_ex_prona_wrong
+                    1, R.drawable.img_ex_prona
                 )
             )
         ),
@@ -42,13 +42,7 @@ object ExchangeFoodDataSource {
             "Sayuran",
             listOf(
                 ExchangeFoodImage(
-                    1, R.drawable.img_ex_veg_1
-                ),
-                ExchangeFoodImage(
-                    1, R.drawable.img_ex_veg_2
-                ),
-                ExchangeFoodImage(
-                    1, R.drawable.img_ex_veg_3
+                    1, R.drawable.img_ex_veg
                 )
             )
         ),
