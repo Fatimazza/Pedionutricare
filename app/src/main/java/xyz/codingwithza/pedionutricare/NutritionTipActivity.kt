@@ -4,10 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
@@ -15,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -70,11 +69,25 @@ fun NutritionTip(
         elevation = 4.dp
     ) {
         Column() {
-            Text(
-                text = data.title,
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {  }
+                    .padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = data.title,
+                    textAlign = TextAlign.Justify,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 22.sp
+                )
+                Spacer(Modifier.weight(1f))
+                NutritionTipButton(
+                    expanded = false,
+                    onClick = {  }
+                )
+            }
             NutritionTipDesc(data)
         }
     }
