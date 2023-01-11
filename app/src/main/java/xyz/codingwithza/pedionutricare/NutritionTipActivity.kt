@@ -82,7 +82,7 @@ fun NutritionTip(
                     text = data.title,
                     textAlign = TextAlign.Justify,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 22.sp,
+                    fontSize = 20.sp,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
