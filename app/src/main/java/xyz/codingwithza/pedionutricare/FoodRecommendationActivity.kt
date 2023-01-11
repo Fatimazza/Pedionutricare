@@ -62,12 +62,7 @@ fun FoodRecommendation(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.padding(
-            start = 16.dp,
-            top = 8.dp,
-            bottom = 16.dp,
-            end = 16.dp
-        ),
+        modifier = modifier.padding(8.dp),
         elevation = 4.dp
     ) {
         Column(
