@@ -50,7 +50,7 @@ fun NutritionTipScreen(
     }) {
         val tipItems = TipDataSource.tipItems
         LazyColumn(
-            modifier.background(Yellow_Awake)
+            modifier.fillMaxSize().background(Yellow_Awake)
         ) {
             items(tipItems) { data ->
                 NutritionTip(tipItems, data)
