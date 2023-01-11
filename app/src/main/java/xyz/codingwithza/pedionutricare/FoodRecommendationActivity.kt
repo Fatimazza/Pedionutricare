@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
@@ -69,7 +66,7 @@ fun FoodRecommendation(
         elevation = 4.dp
     ) {
         Column(
-            modifier.padding(8.dp)
+            modifier.fillMaxSize().padding(8.dp)
         ) {
             Text(
                 text = data.title,
