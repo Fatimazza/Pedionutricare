@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -37,7 +39,11 @@ class LoginActivity : ComponentActivity() {
 fun LoginScreen(
     modifier: Modifier = Modifier
 ) {
+    val name = remember { mutableStateOf("") }
+    val age = remember { mutableStateOf("") }
+
     val context = LocalContext.current
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -62,8 +68,8 @@ fun LoginScreen(
             modifier = modifier.height(16.dp)
         )
         OutlinedTextField(
-            value = "",
-            onValueChange = { },
+            value = name.value,
+            onValueChange = { name.value = it },
             placeholder = { Text(text = "Nama Anda") },
             label = { Text("Masukkan Nama") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -77,8 +83,8 @@ fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
-            value = "",
-            onValueChange = { },
+            value = age.value,
+            onValueChange = { age.value = it },
             placeholder = { Text(text = "10 Tahun") },
             label = { Text("Masukkan Umur") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
