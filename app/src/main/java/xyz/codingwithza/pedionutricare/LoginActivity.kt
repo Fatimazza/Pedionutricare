@@ -90,7 +90,11 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = age.value,
-            onValueChange = { age.value = it },
+            onValueChange = { value ->
+                if (value.length <= 2) {
+                    age.value = value.filter { it.isDigit() }
+                }
+            },
             placeholder = { Text(text = "10 Tahun") },
             label = { Text("Masukkan Umur") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
