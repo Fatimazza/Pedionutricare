@@ -1,5 +1,6 @@
 package xyz.codingwithza.pedionutricare
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,12 +11,16 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import xyz.codingwithza.pedionutricare.ui.theme.*
+import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
+import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +37,7 @@ class LoginActivity : ComponentActivity() {
 fun LoginScreen(
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -89,7 +95,11 @@ fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(10.dp))
         Button(
-            onClick = {},
+            onClick = {
+                context.startActivity(
+                    Intent(context, MainActivity::class.java)
+                )
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
