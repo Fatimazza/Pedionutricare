@@ -5,12 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
@@ -42,6 +45,7 @@ fun LoginScreen(
         Text(
             text = "Selamat Datang di",
             style = MaterialTheme.typography.h5,
+            fontWeight = FontWeight.Bold,
             modifier = modifier.padding(4.dp)
         )
         Text(
@@ -53,6 +57,29 @@ fun LoginScreen(
         Spacer(
             modifier = modifier.height(16.dp)
         )
+        OutlinedTextField(
+            value = "",
+            onValueChange = { },
+            placeholder = { Text(text = "Nama Anda") },
+            label = { Text("Masukkan Nama") },
+            modifier = Modifier
+                .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                .fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            value = "",
+            onValueChange = { },
+            placeholder = { Text(text = "10 Tahun") },
+            label = { Text("Masukkan Umur") },
+            modifier = Modifier
+                .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                .fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number
+            )
+        )
+        Spacer(modifier = Modifier.height(10.dp))
     }
 }
 
