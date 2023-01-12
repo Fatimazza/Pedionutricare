@@ -16,7 +16,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import xyz.codingwithza.pedionutricare.model.FoodSampleDataSource
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 
 class FoodSampleActivity : ComponentActivity() {
@@ -48,11 +47,6 @@ fun FoodSample(
     LazyColumn(
         modifier.padding(16.dp)
     ) {
-        val foodSamples = FoodSampleDataSource.sampleItems
-        val columnFood1Weight = 0.5f
-        val columnFood2Weight = 0.2f
-        val columnFood3Weight = 0.3f
-
         item {
             Text(
                 text = "Contoh Menu Usia 1 - 6 tahun",
