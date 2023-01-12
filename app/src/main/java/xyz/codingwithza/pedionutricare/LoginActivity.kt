@@ -6,15 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.codingwithza.pedionutricare.ui.theme.*
@@ -90,6 +88,17 @@ fun LoginScreen(
             )
         )
         Spacer(modifier = Modifier.height(10.dp))
+        Button(
+            onClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Yellow_Deep
+            )
+        ) {
+            Text(text = "Masuk", textAlign = TextAlign.Center)
+        }
     }
 }
 
