@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,8 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
-import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
+import xyz.codingwithza.pedionutricare.ui.theme.*
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +62,11 @@ fun LoginScreen(
             onValueChange = { },
             placeholder = { Text(text = "Nama Anda") },
             label = { Text("Masukkan Nama") },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Yellow_Deep,
+                unfocusedBorderColor = DarkGray,
+                focusedLabelColor = Yellow_Deep
+            ),
             modifier = Modifier
                 .padding(16.dp, 0.dp, 16.dp, 0.dp)
                 .fillMaxWidth()
@@ -72,6 +77,11 @@ fun LoginScreen(
             onValueChange = { },
             placeholder = { Text(text = "10 Tahun") },
             label = { Text("Masukkan Umur") },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Yellow_Deep,
+                unfocusedBorderColor = DarkGray,
+                focusedLabelColor = Yellow_Deep
+            ),
             modifier = Modifier
                 .padding(16.dp, 0.dp, 16.dp, 0.dp)
                 .fillMaxWidth(),
