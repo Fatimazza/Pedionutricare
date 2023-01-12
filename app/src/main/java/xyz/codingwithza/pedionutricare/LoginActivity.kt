@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -124,6 +125,12 @@ fun LoginScreen(
         ) {
             Text(text = "Masuk", textAlign = TextAlign.Center)
         }
+        val userName = dataStore
+            .getUserName.collectAsState(initial = "")
+        val userAge = dataStore
+            .getUserAge.collectAsState(initial = 0)
+        Text(text = userName.value)
+        Text(text = userAge.value.toString())
     }
 }
 
