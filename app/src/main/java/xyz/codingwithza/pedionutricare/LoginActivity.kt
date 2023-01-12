@@ -113,8 +113,12 @@ fun LoginScreen(
         Button(
             onClick = {
                 scope.launch {
-                    dataStore.saveUserName(name.value)
-                    dataStore.saveUserAge(age.value.toInt())
+                    val storedName =
+                        name.value.ifEmpty { "User" }
+                    val storedAge =
+                        if (age.value.isNotEmpty()) age.value.toInt() else 0
+                    dataStore.saveUserName(storedName)
+                    dataStore.saveUserAge(storedAge)
                 }
                 context.startActivity(
                     Intent(context, MainActivity::class.java)
