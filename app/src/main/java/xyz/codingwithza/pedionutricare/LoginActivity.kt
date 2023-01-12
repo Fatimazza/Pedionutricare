@@ -3,6 +3,7 @@ package xyz.codingwithza.pedionutricare
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
             .fillMaxSize()
+            .background(Yellow_Awake)
             .padding(16.dp, 16.dp),
     ) {
         Text(
