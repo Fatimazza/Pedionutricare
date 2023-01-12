@@ -5,4 +5,5 @@
     <string name="title_activity_nutrition_tip">NutritionTipActivity</string>
     <string name="title_activity_food_sample">FoodSampleActivity</string>
     <string name="title_activity_food_exchanged">FoodExchangedActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
