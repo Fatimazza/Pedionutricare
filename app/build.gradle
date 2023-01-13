@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'xyz.codingwithza.pedionutricare'
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "xyz.codingwithza.pedionutricare"
         minSdk 21
-        targetSdk 33
+        targetSdk 32
         versionCode 1
         versionName "1.0.5"
 
@@ -56,7 +56,7 @@ dependencies {
     implementation 'androidx.compose.material:material:1.1.1'
     implementation "androidx.compose.material:material-icons-extended:$compose_ui_version"
     implementation "androidx.datastore:datastore-preferences:1.0.0"
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
