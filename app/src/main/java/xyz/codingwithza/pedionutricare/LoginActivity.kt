@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,7 +16,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -56,22 +59,29 @@ fun LoginScreen(
         modifier = modifier
             .fillMaxSize()
             .background(Yellow_Awake)
-            .padding(16.dp, 16.dp),
+            .padding(8.dp, 8.dp),
     ) {
         Text(
             text = "Selamat Datang di",
-            style = MaterialTheme.typography.h5,
-            fontWeight = FontWeight.Bold,
-            modifier = modifier.padding(4.dp)
+            style = MaterialTheme.typography.h6,
+            fontWeight = FontWeight.Bold
         )
         Text(
             text = "Pedionutricare",
-            style = MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.h4,
             fontWeight = FontWeight.Light,
             modifier = modifier.padding(8.dp)
         )
+        val painter = painterResource(R.drawable.img_app_logo_pedionutricare)
+        Image(
+            painter = painter,
+            contentDescription = "PedioNutriCare Logo",
+            modifier = modifier
+                .size(250.dp),
+            contentScale = ContentScale.Fit
+        )
         Spacer(
-            modifier = modifier.height(16.dp)
+            modifier = modifier.height(8.dp)
         )
         OutlinedTextField(
             value = name.value,
