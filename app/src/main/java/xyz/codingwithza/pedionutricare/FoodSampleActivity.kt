@@ -79,7 +79,7 @@ fun FoodSample(
             Spacer(
                 modifier = modifier.height(16.dp)
             )
-            val painter = painterResource(id = R.drawable.img_sample_1ke6)
+            val painter = painterResource(getFoodImage(userAge.value))
             Image(
                 painter = painter,
                 contentDescription = "Exchanged Food Image",
@@ -89,6 +89,15 @@ fun FoodSample(
                 contentScale = ContentScale.Fit
             )
         }
+    }
+}
+
+fun getFoodImage(age: Int) : Int {
+    return when (age) {
+        in 0..6 -> R.drawable.img_sample_1ke6
+        in 7..9 -> R.drawable.img_sample_7ke9
+        in 10..12 -> R.drawable.img_sample_10ke12
+        else -> R.drawable.img_sample_13ke18
     }
 }
 
