@@ -119,9 +119,9 @@ fun LoginScreen(
             onClick = {
                 scope.launch {
                     val storedName =
-                        name.value.ifEmpty { "User" }
+                        name.value.ifEmpty { "Hero" }
                     val storedAge =
-                        if (age.value.isNotEmpty()) age.value.toInt() else 0
+                        if (age.value.isNotEmpty()) age.value.toInt() else 1
                     dataStore.saveUserName(storedName)
                     dataStore.saveUserAge(storedAge)
                 }
@@ -139,9 +139,9 @@ fun LoginScreen(
             Text(text = "Masuk", textAlign = TextAlign.Center)
         }
         val userName = dataStore
-            .getUserName.collectAsState(initial = "")
+            .getUserName.collectAsState(initial = "Hero")
         val userAge = dataStore
-            .getUserAge.collectAsState(initial = 0)
+            .getUserAge.collectAsState(initial = 1)
         Text(text = userName.value)
         Text(text = userAge.value.toString())
     }

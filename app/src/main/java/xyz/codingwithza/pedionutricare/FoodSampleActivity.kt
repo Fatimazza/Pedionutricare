@@ -65,9 +65,9 @@ fun FoodSample(
     val dataStore = StoreUserData(context)
 
     val userName = dataStore
-        .getUserName.collectAsState(initial = "")
+        .getUserName.collectAsState(initial = "Hero")
     val userAge = dataStore
-        .getUserAge.collectAsState(initial = 0)
+        .getUserAge.collectAsState(initial = 1)
 
     Card(
         modifier.padding(8.dp),

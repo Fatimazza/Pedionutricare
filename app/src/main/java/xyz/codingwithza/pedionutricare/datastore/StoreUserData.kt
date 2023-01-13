@@ -38,12 +38,12 @@ class StoreUserData(private val context: Context) {
 
     val getUserName: Flow<String> = context.dataStore.data
         .map { preferences ->
-            preferences[USER_NAME_KEY] ?: "User"
+            preferences[USER_NAME_KEY] ?: "Hero"
         }
 
     val getUserAge: Flow<Int> = context.dataStore.data
         .map { preferences ->
-            preferences[USER_AGE_KEY] ?: 0
+            preferences[USER_AGE_KEY] ?: 1
         }
 
 }
