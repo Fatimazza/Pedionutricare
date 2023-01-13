@@ -97,7 +97,7 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
-                text = "Contoh Menu Usia 1-6 Tahun",
+                text = "Contoh Menu Usia ${getFoodTitle(userAge.value)} Tahun",
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
@@ -125,6 +125,15 @@ fun getFoodImage(age: Int) : Int {
         in 7..9 -> R.drawable.img_sample_7ke9
         in 10..12 -> R.drawable.img_sample_10ke12
         else -> R.drawable.img_sample_13ke18
+    }
+}
+
+fun getFoodTitle(age: Int) : String {
+    return when (age) {
+        in 0..6 -> "1 - 6"
+        in 7..9 -> "7 - 9"
+        in 10..12 -> "10 - 12"
+        else -> "13 - 18"
     }
 }
 
