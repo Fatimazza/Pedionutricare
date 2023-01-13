@@ -1,10 +1,7 @@
 package xyz.codingwithza.pedionutricare.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -34,7 +31,7 @@ fun ButtonImageMenu(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                modifier = modifier.padding(28.dp),
+                modifier = modifier.padding(8.dp),
                 painter = painterResource(image),
                 contentDescription = title,
                 contentScale = ContentScale.FillWidth
@@ -54,7 +51,7 @@ fun ButtonImageMenu(
 fun ButtonImagePreview() {
     PedionutricareTheme {
         ButtonImageMenu(
-            R.drawable.ic_outline_restaurant_24,
+            R.drawable.img_menu_need,
             "This is Menu Long Menu Long 2",
             onClick = {})
     }
