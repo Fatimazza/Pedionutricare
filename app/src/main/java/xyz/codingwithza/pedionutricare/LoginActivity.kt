@@ -152,12 +152,6 @@ fun LoginScreen(
         ) {
             Text(text = "Masuk", textAlign = TextAlign.Center)
         }
-        val userName = dataStore
-            .getUserName.collectAsState(initial = "Hero")
-        val userAge = dataStore
-            .getUserAge.collectAsState(initial = 1)
-        Text(text = userName.value)
-        Text(text = userAge.value.toString())
     }
 }
 
