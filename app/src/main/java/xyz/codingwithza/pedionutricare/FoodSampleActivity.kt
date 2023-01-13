@@ -80,21 +80,31 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
-                text = "Halo ${userName.value}!",
+                text = "Halo, ${userName.value}!",
                 textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontSize = 22.sp,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
                 modifier = modifier.fillMaxWidth(),
             )
             Text(
-                text = "Contoh Menu Usia ${userAge.value} tahun",
+                text = "Usia kamu ${userAge.value} tahun",
                 textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontSize = 22.sp,
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
                 modifier = modifier.fillMaxWidth(),
             )
             Spacer(
                 modifier = modifier.height(16.dp)
+            )
+            Text(
+                text = "Contoh Menu Usia 1-6 Tahun",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = modifier.fillMaxWidth(),
+            )
+            Spacer(
+                modifier = modifier.height(4.dp)
             )
             val painter = painterResource(getFoodImage(userAge.value))
             Image(
