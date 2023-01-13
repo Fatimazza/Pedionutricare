@@ -75,7 +75,12 @@ fun LoginScreen(
         )
         OutlinedTextField(
             value = name.value,
-            onValueChange = { name.value = it },
+            onValueChange = { value ->
+                if (value.length <= 25) {
+                    name.value = value
+                        .filter { it.isLetter().or(it.isWhitespace()) }
+                }
+            },
             placeholder = { Text(text = "Nama Anda") },
             label = { Text("Masukkan Nama") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
