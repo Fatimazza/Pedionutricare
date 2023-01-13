@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -23,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.datastore.StoreUserData
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 
 class FoodSampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,13 +39,21 @@ class FoodSampleActivity : ComponentActivity() {
 }
 
 @Composable
-fun FoodSampleScreen() {
+fun FoodSampleScreen(
+    modifier: Modifier = Modifier
+) {
     Scaffold(topBar = {
         TopAppBar(title = {
             Text(stringResource(R.string.app_name))
         })
     }) {
-        FoodSample()
+        LazyColumn(
+            modifier.background(Yellow_Awake)
+        ) {
+            item {
+                FoodSample()
+            }
+        }
     }
 }
 
@@ -58,10 +69,16 @@ fun FoodSample(
     val userAge = dataStore
         .getUserAge.collectAsState(initial = 0)
 
-    LazyColumn(
-        modifier.padding(16.dp)
+    Card(
+        modifier.padding(8.dp),
+        elevation = 4.dp
     ) {
-        item {
+        Column(
+            modifier.padding(4.dp)
+        ){
+            Spacer(
+                modifier = modifier.height(16.dp)
+            )
             Text(
                 text = "Halo ${userName.value}!",
                 textAlign = TextAlign.Center,
