@@ -1,7 +1,9 @@
 package xyz.codingwithza.pedionutricare
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -62,6 +64,8 @@ fun MainContent(
     val menuItems = MenuDataSource.menuItems
     val context = LocalContext.current
     val version = BuildConfig.VERSION_NAME
+
+    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
 
     LazyColumn(
         modifier = modifier

@@ -1,6 +1,8 @@
 package xyz.codingwithza.pedionutricare
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -52,6 +54,8 @@ fun LoginScreen(
     val context = LocalContext.current
     val dataStore = StoreUserData(context)
     val scope = rememberCoroutineScope()
+
+    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

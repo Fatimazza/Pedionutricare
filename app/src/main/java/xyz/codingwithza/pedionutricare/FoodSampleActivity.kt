@@ -1,5 +1,7 @@
 package xyz.codingwithza.pedionutricare
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -63,6 +65,8 @@ fun FoodSample(
 ) {
     val context = LocalContext.current
     val dataStore = StoreUserData(context)
+
+    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
 
     val userName = dataStore
         .getUserName.collectAsState(initial = "Hero")
