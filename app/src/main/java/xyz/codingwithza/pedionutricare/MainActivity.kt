@@ -97,6 +97,7 @@ fun openOtherScreen(data: Menu, context: Context) {
         3 -> context.startActivity(Intent(context, FoodRecommendationActivity::class.java))
         4 -> context.startActivity(Intent(context, FoodExchangedActivity::class.java))
         5 -> context.startActivity(Intent(context, FoodSampleActivity::class.java))
+        6 -> context.startActivity(Intent(context, DailyNeedsActivity::class.java))
         else  -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
     }
 }
