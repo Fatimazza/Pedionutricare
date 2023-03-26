@@ -7,10 +7,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -66,8 +66,12 @@ fun DailyNeeds(
     val userAge = dataStore
         .getUserAge.collectAsState(initial = 1)
 
+    val genderOptions = listOf("Laki - laki", "Perempuan")
+    var simpleCountry by remember { mutableStateOf("") }
+    var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
+
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center,
         modifier = modifier
             .fillMaxSize()
@@ -96,6 +100,42 @@ fun DailyNeeds(
         Spacer(
             modifier = modifier.height(10.dp)
         )
+        Box {
+            OutlinedTextField(
+                value = simpleCountry,
+                onValueChange = { },
+                placeholder = { Text(text = "Laki-laki / Perempuan") },
+                label = { Text("Jenis Kelamin") },
+                enabled = false,
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    disabledTextColor = LocalContentColor
+                        .current.copy(LocalContentAlpha.current),
+                    disabledBorderColor = MaterialTheme
+                        .colors.onSurface.copy(alpha = ContentAlpha.high),
+                    disabledLabelColor = MaterialTheme
+                        .colors.onSurface.copy(ContentAlpha.medium),
+                ),
+                modifier = Modifier
+                    .clickable {
+                        isSimpleDropDownExpanded = true
+                    }
+                    .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                    .fillMaxWidth()
+            )
+            DropdownMenu(
+                expanded = isSimpleDropDownExpanded,
+                onDismissRequest = { isSimpleDropDownExpanded = false },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                genderOptions.forEach {
+                    DropdownMenuItem(onClick = {
+                        simpleCountry = it
+                        isSimpleDropDownExpanded = false
+                    }, modifier = Modifier
+                        .wrapContentWidth()) { Text(it) }
+                }
+            }
+        }
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = "",
