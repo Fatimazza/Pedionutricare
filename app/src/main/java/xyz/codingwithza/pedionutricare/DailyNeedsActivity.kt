@@ -60,8 +60,8 @@ fun DailyNeedsScreen(
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
-                placeholder = { Text(text = "Nama Anda") },
-                label = { Text("Masukkan Nama") },
+                placeholder = { Text(text = "20 Kg") },
+                label = { Text("Berat Badan") },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = Yellow_Deep,
                     unfocusedBorderColor = DarkGray,
