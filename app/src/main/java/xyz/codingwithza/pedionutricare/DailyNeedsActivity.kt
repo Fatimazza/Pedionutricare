@@ -1,6 +1,7 @@
 package xyz.codingwithza.pedionutricare
 
 import android.app.Activity
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -18,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import xyz.codingwithza.pedionutricare.datastore.StoreUserData
 import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
@@ -48,14 +51,21 @@ fun DailyNeedsScreen() {
         val context = LocalContext.current
         ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
 
-        DailyNeeds()
+        DailyNeeds(context)
     }
 }
 
 @Composable
 fun DailyNeeds(
+    context: Context,
     modifier: Modifier = Modifier
 ) {
+    val dataStore = StoreUserData(context)
+    val userName = dataStore
+        .getUserName.collectAsState(initial = "Hero")
+    val userAge = dataStore
+        .getUserAge.collectAsState(initial = 1)
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -65,7 +75,7 @@ fun DailyNeeds(
             .padding(8.dp, 8.dp),
     ) {
         Text(
-            text = "Nama: ",
+            text = "Nama: ${userName.value}",
             fontWeight = FontWeight.Normal,
             fontSize = 20.sp,
             modifier = Modifier
@@ -76,7 +86,7 @@ fun DailyNeeds(
             modifier = modifier.height(8.dp)
         )
         Text(
-            text = "Usia: ",
+            text = "Usia: ${userAge.value} tahun",
             fontWeight = FontWeight.Normal,
             fontSize = 20.sp,
             modifier = Modifier
