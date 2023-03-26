@@ -156,11 +156,12 @@ fun DailyNeeds(
         OutlinedTextField(
             value = weight,
             onValueChange = { value ->
-                if (value.length <= 2) {
-                    weight = value.filter { it.isDigit() }
+                if (value.length <= 4) {
+                    weight = value.takeIf { it.contains(",") }
+                        ?.replace(",", ".") ?: value
                 }
             },
-            placeholder = { Text(text = "20 Kg") },
+            placeholder = { Text(text = "20.5 Kg") },
             label = { Text("Berat Badan") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Yellow_Deep,
