@@ -96,6 +96,15 @@ fun DailyNeeds(
         Spacer(
             modifier = modifier.height(8.dp)
         )
+        Text(
+            text = "Jenis Kelamin:",
+            fontWeight = FontWeight.Normal,
+            fontSize = 20.sp,
+            modifier = Modifier
+                .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                .fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = "",
             onValueChange = {},
