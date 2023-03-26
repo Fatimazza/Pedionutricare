@@ -67,7 +67,7 @@ fun DailyNeeds(
         .getUserAge.collectAsState(initial = 1)
 
     val genderOptions = listOf("Laki - laki", "Perempuan")
-    var simpleCountry by remember { mutableStateOf("") }
+    var simpleGender by remember { mutableStateOf("") }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
 
     Column(
@@ -102,7 +102,7 @@ fun DailyNeeds(
         )
         Box {
             OutlinedTextField(
-                value = simpleCountry,
+                value = simpleGender,
                 onValueChange = { },
                 placeholder = { Text(text = "Laki-laki / Perempuan") },
                 label = { Text("Jenis Kelamin") },
@@ -129,7 +129,7 @@ fun DailyNeeds(
             ) {
                 genderOptions.forEach {
                     DropdownMenuItem(onClick = {
-                        simpleCountry = it
+                        simpleGender = it
                         isSimpleDropDownExpanded = false
                     }, modifier = Modifier
                         .wrapContentWidth()) { Text(it) }
