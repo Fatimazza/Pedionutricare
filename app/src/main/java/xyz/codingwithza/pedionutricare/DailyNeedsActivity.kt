@@ -75,12 +75,25 @@ fun DailyNeeds(
 
     Column(
         horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         modifier = modifier
             .fillMaxSize()
             .background(Yellow_Awake)
             .padding(8.dp, 8.dp),
     ) {
+        Spacer(
+            modifier = modifier.height(16.dp)
+        )
+        Text(
+            text = "Kebutuhan Bahan Makanan Sehari",
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            modifier = modifier.fillMaxWidth(),
+        )
+        Spacer(
+            modifier = modifier.height(18.dp)
+        )
         Text(
             text = "Nama: ${userName.value}",
             fontWeight = FontWeight.Normal,
