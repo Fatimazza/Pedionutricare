@@ -72,24 +72,6 @@ fun DailyNeedsScreen(
                     .fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(10.dp))
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                placeholder = { Text(text = "10 Tahun") },
-                label = { Text("Masukkan Umur") },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Yellow_Deep,
-                    unfocusedBorderColor = DarkGray,
-                    focusedLabelColor = Yellow_Deep
-                ),
-                modifier = Modifier
-                    .padding(16.dp, 0.dp, 16.dp, 0.dp)
-                    .fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number
-                )
-            )
-            Spacer(modifier = Modifier.height(10.dp))
         }
     }
 }
