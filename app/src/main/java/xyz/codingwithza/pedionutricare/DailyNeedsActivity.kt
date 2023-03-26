@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -66,6 +68,7 @@ fun DailyNeeds(
     val userAge = dataStore
         .getUserAge.collectAsState(initial = 1)
 
+    var weight by remember { mutableStateOf("") }
     val genderOptions = listOf("Laki - laki", "Perempuan")
     var simpleGender by remember { mutableStateOf("") }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
@@ -138,8 +141,12 @@ fun DailyNeeds(
         }
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = weight,
+            onValueChange = { value ->
+                if (value.length <= 2) {
+                    weight = value.filter { it.isDigit() }
+                }
+            },
             placeholder = { Text(text = "20 Kg") },
             label = { Text("Berat Badan") },
             colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -149,7 +156,10 @@ fun DailyNeeds(
             ),
             modifier = Modifier
                 .padding(16.dp, 0.dp, 16.dp, 0.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number
+            )
         )
         Spacer(modifier = Modifier.height(10.dp))
         Button(
