@@ -190,6 +190,28 @@ fun DailyNeeds(
     }
 }
 
+fun getEnergyByBMR(age: Int, weight: Double, isFemale: Boolean): Number {
+    val additionalFactor16 = 1.6
+    val additionalFactor14 = 1.4
+    return when (age) {
+        in 0..2 ->
+            if (isFemale)
+                ((61 * weight - 51) * additionalFactor16)
+            else
+                ((60.9 * weight - 54) * additionalFactor16)
+        in 3..9 ->
+            if (isFemale)
+                ((22.5 * weight + 499) * additionalFactor16)
+            else
+                ((22.7 * weight + 495) * additionalFactor16)
+        else ->
+            if (isFemale)
+                ((12.2 * weight + 746) * additionalFactor14)
+            else
+                ((17.5 * weight + 651) * additionalFactor14)
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DailyNeedsPreview() {
