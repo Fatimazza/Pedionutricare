@@ -13,9 +13,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
@@ -62,6 +64,28 @@ fun DailyNeeds(
             .background(Yellow_Awake)
             .padding(8.dp, 8.dp),
     ) {
+        Text(
+            text = "Nama: ",
+            fontWeight = FontWeight.Normal,
+            fontSize = 20.sp,
+            modifier = Modifier
+                .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                .fillMaxWidth()
+        )
+        Spacer(
+            modifier = modifier.height(8.dp)
+        )
+        Text(
+            text = "Usia: ",
+            fontWeight = FontWeight.Normal,
+            fontSize = 20.sp,
+            modifier = Modifier
+                .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                .fillMaxWidth()
+        )
+        Spacer(
+            modifier = modifier.height(8.dp)
+        )
         OutlinedTextField(
             value = "",
             onValueChange = {},
