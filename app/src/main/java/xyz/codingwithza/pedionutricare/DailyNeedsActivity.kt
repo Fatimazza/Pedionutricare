@@ -285,7 +285,7 @@ fun DailyNeeds(
                 Spacer(
                     modifier = modifier.height(8.dp)
                 )
-                val painter = painterResource(getDailyImage(1000))
+                val painter = painterResource(getDailyImage(energy))
                 Image(
                     painter = painter,
                     contentDescription = "Daily Food Needs Image",
