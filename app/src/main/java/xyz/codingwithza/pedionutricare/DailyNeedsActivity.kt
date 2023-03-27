@@ -71,7 +71,7 @@ fun DailyNeeds(
 
     var weight by remember { mutableStateOf("") }
     val genderOptions = listOf("Laki - laki", "Perempuan")
-    var simpleGender by remember { mutableStateOf(genderOptions.get(0)) }
+    var simpleGender by remember { mutableStateOf(genderOptions[0]) }
     var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
 
@@ -180,7 +180,7 @@ fun DailyNeeds(
         Spacer(modifier = Modifier.height(10.dp))
         Button(
             onClick = {
-                isGenderFemale = simpleGender == "Perempuan"
+                isGenderFemale = simpleGender == genderOptions[1]
                 val choosenWeight = if (weight.isNotEmpty())
                     weight.toDouble() else 0.0
                 Toast.makeText(
