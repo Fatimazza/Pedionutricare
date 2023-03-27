@@ -10,6 +10,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -41,7 +42,9 @@ class DailyNeedsActivity : ComponentActivity() {
 }
 
 @Composable
-fun DailyNeedsScreen() {
+fun DailyNeedsScreen(
+    modifier: Modifier = Modifier
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -54,7 +57,13 @@ fun DailyNeedsScreen() {
         val context = LocalContext.current
         ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
 
-        DailyNeeds(context)
+        LazyColumn(
+            modifier.fillMaxSize()
+        ) {
+            item {
+                DailyNeeds(context)
+            }
+        }
     }
 }
 
@@ -75,132 +84,137 @@ fun DailyNeeds(
     var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
 
-    Column(
-        horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top,
-        modifier = modifier
-            .fillMaxSize()
-            .background(Yellow_Awake)
-            .padding(8.dp, 8.dp),
+    Card(
+        modifier = modifier.padding(8.dp),
+        elevation = 4.dp
     ) {
-        Spacer(
-            modifier = modifier.height(16.dp)
-        )
-        Text(
-            text = "Kebutuhan Bahan Makanan Sehari",
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            modifier = modifier.fillMaxWidth(),
-        )
-        Spacer(
-            modifier = modifier.height(18.dp)
-        )
-        Text(
-            text = "Nama: ${userName.value}",
-            fontWeight = FontWeight.Normal,
-            fontSize = 20.sp,
-            modifier = Modifier
-                .padding(16.dp, 0.dp, 16.dp, 0.dp)
-                .fillMaxWidth()
-        )
-        Spacer(
-            modifier = modifier.height(8.dp)
-        )
-        Text(
-            text = "Usia: ${userAge.value} tahun",
-            fontWeight = FontWeight.Normal,
-            fontSize = 20.sp,
-            modifier = Modifier
-                .padding(16.dp, 0.dp, 16.dp, 0.dp)
-                .fillMaxWidth()
-        )
-        Spacer(
-            modifier = modifier.height(10.dp)
-        )
-        Box {
-            OutlinedTextField(
-                value = simpleGender,
-                onValueChange = { },
-                placeholder = { Text(text = "Laki-laki / Perempuan") },
-                label = { Text("Jenis Kelamin") },
-                enabled = false,
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    disabledTextColor = LocalContentColor
-                        .current.copy(LocalContentAlpha.current),
-                    disabledBorderColor = MaterialTheme
-                        .colors.onSurface.copy(alpha = ContentAlpha.high),
-                    disabledLabelColor = MaterialTheme
-                        .colors.onSurface.copy(ContentAlpha.medium),
-                ),
+        Column(
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.Top,
+            modifier = modifier
+                .fillMaxSize()
+                .background(Yellow_Awake)
+                .padding(8.dp, 8.dp),
+        ) {
+            Spacer(
+                modifier = modifier.height(16.dp)
+            )
+            Text(
+                text = "Kebutuhan Bahan Makanan Sehari",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = modifier.fillMaxWidth(),
+            )
+            Spacer(
+                modifier = modifier.height(18.dp)
+            )
+            Text(
+                text = "Nama: ${userName.value}",
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
                 modifier = Modifier
-                    .clickable {
-                        isSimpleDropDownExpanded = true
-                    }
                     .padding(16.dp, 0.dp, 16.dp, 0.dp)
                     .fillMaxWidth()
             )
-            DropdownMenu(
-                expanded = isSimpleDropDownExpanded,
-                onDismissRequest = { isSimpleDropDownExpanded = false },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                genderOptions.forEach {
-                    DropdownMenuItem(onClick = {
-                        simpleGender = it
-                        isSimpleDropDownExpanded = false
-                    }, modifier = Modifier
-                        .wrapContentWidth()) { Text(it) }
+            Spacer(
+                modifier = modifier.height(8.dp)
+            )
+            Text(
+                text = "Usia: ${userAge.value} tahun",
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                    .fillMaxWidth()
+            )
+            Spacer(
+                modifier = modifier.height(10.dp)
+            )
+            Box {
+                OutlinedTextField(
+                    value = simpleGender,
+                    onValueChange = { },
+                    placeholder = { Text(text = "Laki-laki / Perempuan") },
+                    label = { Text("Jenis Kelamin") },
+                    enabled = false,
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        disabledTextColor = LocalContentColor
+                            .current.copy(LocalContentAlpha.current),
+                        disabledBorderColor = MaterialTheme
+                            .colors.onSurface.copy(alpha = ContentAlpha.high),
+                        disabledLabelColor = MaterialTheme
+                            .colors.onSurface.copy(ContentAlpha.medium),
+                    ),
+                    modifier = Modifier
+                        .clickable {
+                            isSimpleDropDownExpanded = true
+                        }
+                        .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                        .fillMaxWidth()
+                )
+                DropdownMenu(
+                    expanded = isSimpleDropDownExpanded,
+                    onDismissRequest = { isSimpleDropDownExpanded = false },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    genderOptions.forEach {
+                        DropdownMenuItem(onClick = {
+                            simpleGender = it
+                            isSimpleDropDownExpanded = false
+                        }, modifier = Modifier
+                            .wrapContentWidth()) { Text(it) }
+                    }
                 }
             }
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        OutlinedTextField(
-            value = weight,
-            onValueChange = { value ->
-                if (value.length <= 4) {
-                    weight = value.takeIf { it.contains(",") }
-                        ?.replace(",", ".") ?: value
-                }
-            },
-            placeholder = { Text(text = "20.5 Kg") },
-            label = { Text("Berat Badan") },
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Yellow_Deep,
-                unfocusedBorderColor = DarkGray,
-                focusedLabelColor = Yellow_Deep
-            ),
-            modifier = Modifier
-                .padding(16.dp, 0.dp, 16.dp, 0.dp)
-                .fillMaxWidth(),
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number
+            Spacer(modifier = Modifier.height(10.dp))
+            OutlinedTextField(
+                value = weight,
+                onValueChange = { value ->
+                    if (value.length <= 4) {
+                        weight = value.takeIf { it.contains(",") }
+                            ?.replace(",", ".") ?: value
+                    }
+                },
+                placeholder = { Text(text = "20.5 Kg") },
+                label = { Text("Berat Badan") },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Yellow_Deep,
+                    unfocusedBorderColor = DarkGray,
+                    focusedLabelColor = Yellow_Deep
+                ),
+                modifier = Modifier
+                    .padding(16.dp, 0.dp, 16.dp, 0.dp)
+                    .fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number
+                )
             )
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(
-            onClick = {
-                isGenderFemale = simpleGender == genderOptions[1]
-                val choosenWeight = if (weight.isNotEmpty())
-                    weight.toDouble() else 0.0
-                Toast.makeText(
-                    context,
-                    String.format(
-                        "%.1f", getEnergyByBMR
-                            (userAge.value, choosenWeight, isGenderFemale)
-                            .toDouble()
-                    ),
-                    Toast.LENGTH_LONG
-                ).show()
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = Yellow_Deep
-            )
-        ) {
-            Text(text = "Lihat Hasil", textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                onClick = {
+                    isGenderFemale = simpleGender == genderOptions[1]
+                    val choosenWeight = if (weight.isNotEmpty())
+                        weight.toDouble() else 0.0
+                    Toast.makeText(
+                        context,
+                        String.format(
+                            "%.1f", getEnergyByBMR
+                                (userAge.value, choosenWeight, isGenderFemale)
+                                .toDouble()
+                        ),
+                        Toast.LENGTH_LONG
+                    ).show()
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Yellow_Deep
+                )
+            ) {
+                Text(text = "Lihat Hasil", textAlign = TextAlign.Center)
+            }
         }
     }
 }
