@@ -71,7 +71,7 @@ fun DailyNeeds(
 
     var weight by remember { mutableStateOf("") }
     val genderOptions = listOf("Laki - laki", "Perempuan")
-    var simpleGender by remember { mutableStateOf("") }
+    var simpleGender by remember { mutableStateOf(genderOptions.get(0)) }
     var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
 
