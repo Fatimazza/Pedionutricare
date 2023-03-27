@@ -94,6 +94,9 @@ fun DailyNeeds(
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
     var isResultCardVisible by remember { mutableStateOf(false) }
 
+    var chosenWeight by remember { mutableStateOf(0.0) }
+    var energy by remember { mutableStateOf(0) }
+
     Card(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
@@ -202,13 +205,14 @@ fun DailyNeeds(
                 onClick = {
                     isResultCardVisible = true
                     isGenderFemale = simpleGender == genderOptions[1]
-                    val choosenWeight = if (weight.isNotEmpty())
+                    chosenWeight =  if (weight.isNotEmpty())
                         weight.toDouble() else 0.0
+                    energy = getEnergyByBMR(userAge.value, chosenWeight, isGenderFemale).toInt()
                     Toast.makeText(
                         context,
                         String.format(
                             "%.1f", getEnergyByBMR
-                                (userAge.value, choosenWeight, isGenderFemale)
+                                (userAge.value, chosenWeight, isGenderFemale)
                                 .toDouble()
                         ),
                         Toast.LENGTH_LONG
@@ -257,7 +261,7 @@ fun DailyNeeds(
                     modifier = modifier.height(18.dp)
                 )
                 Text(
-                    text = "Energi: 0 kkal, Protein: 0 gram,",
+                    text = "Energi: $energy kkal, Protein: 0 gram,",
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
