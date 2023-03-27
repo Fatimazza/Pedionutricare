@@ -280,7 +280,7 @@ fun DailyNeeds(
                 Spacer(
                     modifier = modifier.height(8.dp)
                 )
-                val painter = painterResource(R.drawable.img_eng_1000)
+                val painter = painterResource(getDailyImage(1000))
                 Image(
                     painter = painter,
                     contentDescription = "Daily Food Needs Image",
@@ -292,6 +292,17 @@ fun DailyNeeds(
                 )
             }
         }
+    }
+}
+
+fun getDailyImage(energy: Int) : Int {
+    return when (energy) {
+        in 0..1000 -> R.drawable.img_eng_1000
+        in 1001..1250 -> R.drawable.img_eng_1251
+        in 1251..1500 -> R.drawable.img_eng_1500
+        in 1501..1750 -> R.drawable.img_eng_1750
+        in 1751..2000 -> R.drawable.img_eng_2000
+        else -> R.drawable.img_eng_more_2000
     }
 }
 
