@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -71,6 +72,7 @@ fun DailyNeeds(
     var weight by remember { mutableStateOf("") }
     val genderOptions = listOf("Laki - laki", "Perempuan")
     var simpleGender by remember { mutableStateOf("") }
+    var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
 
     Column(
@@ -177,7 +179,20 @@ fun DailyNeeds(
         )
         Spacer(modifier = Modifier.height(10.dp))
         Button(
-            onClick = {},
+            onClick = {
+                isGenderFemale = simpleGender == "Perempuan"
+                val choosenWeight = if (weight.isNotEmpty())
+                    weight.toDouble() else 0.0
+                Toast.makeText(
+                    context,
+                    String.format(
+                        "%.1f", getEnergyByBMR
+                            (userAge.value, choosenWeight, isGenderFemale)
+                            .toDouble()
+                    ),
+                    Toast.LENGTH_LONG
+                ).show()
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
