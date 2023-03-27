@@ -13,6 +13,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -20,9 +21,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -81,6 +84,8 @@ fun DailyNeeds(
         .getUserName.collectAsState(initial = "Hero")
     val userAge = dataStore
         .getUserAge.collectAsState(initial = 1)
+
+    val focusManager = LocalFocusManager.current
 
     var weight by remember { mutableStateOf("") }
     val genderOptions = listOf("Laki - laki", "Perempuan")
@@ -181,7 +186,11 @@ fun DailyNeeds(
                     .padding(16.dp, 0.dp, 16.dp, 0.dp)
                     .fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = { focusManager.clearFocus() }
                 )
             )
             Spacer(modifier = Modifier.height(10.dp))
@@ -200,6 +209,7 @@ fun DailyNeeds(
                         ),
                         Toast.LENGTH_LONG
                     ).show()
+                    focusManager.clearFocus()
                 },
                 modifier = Modifier
                     .fillMaxWidth()
