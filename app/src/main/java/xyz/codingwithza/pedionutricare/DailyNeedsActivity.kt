@@ -174,7 +174,9 @@ fun DailyNeeds(
                         weight = value.takeIf { it.contains(",") }
                             ?.replace(",", ".") ?:
                             value.takeIf { it.contains("-") }
-                            ?.replace("-", "") ?: value
+                                ?.replace("-", "") ?:
+                            value.takeIf { it.contains(" ") }
+                                ?.replace(" ", "") ?: value
                     }
                 },
                 placeholder = { Text(text = "20.5 Kg") },
@@ -200,7 +202,7 @@ fun DailyNeeds(
                 onClick = {
                     isResultCardVisible = true
                     isGenderFemale = simpleGender == genderOptions[1]
-                    val choosenWeight = if (weight.isNotEmpty() && weight.isNotBlank())
+                    val choosenWeight = if (weight.isNotEmpty())
                         weight.toDouble() else 0.0
                     Toast.makeText(
                         context,
