@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,9 +16,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -207,6 +204,56 @@ fun DailyNeeds(
             ) {
                 Text(text = "Lihat Hasil", textAlign = TextAlign.Center)
             }
+        }
+    }
+
+    Card(
+        modifier = modifier.padding(8.dp),
+        elevation = 4.dp
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top,
+            modifier = modifier
+                .fillMaxSize()
+                .padding(8.dp, 8.dp),
+        ) {
+            Spacer(
+                modifier = modifier.height(16.dp)
+            )
+            Text(
+                text = "Kebutuhan Gizi",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = modifier.fillMaxWidth(),
+            )
+            Spacer(
+                modifier = modifier.height(18.dp)
+            )
+            Text(
+                text = "Energi: 0 kkal, Protein: 0 gram,",
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
+            )
+            Spacer(
+                modifier = modifier.height(8.dp)
+            )
+            Text(
+                text = "Lemak: 0 gram, KH: 0 gram",
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
+            )
+            Spacer(
+                modifier = modifier.height(18.dp)
+            )
+            Text(
+                text = "Kebutuhan Bahan Makanan Sehari",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = modifier.fillMaxWidth(),
+            )
         }
     }
 }
