@@ -110,7 +110,8 @@ fun LoginScreen(
         OutlinedTextField(
             value = age.value,
             onValueChange = { value ->
-                if (value.length <= 2) {
+                val ageLength = if (value.any { it in '0'..'1' }) 2 else 1
+                if (value.length <= ageLength) {
                     age.value = value.filter { it.isDigit() }
                 }
             },
