@@ -36,6 +36,7 @@ import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
+import kotlin.math.roundToInt
 
 class DailyNeedsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,6 +97,7 @@ fun DailyNeeds(
 
     var chosenWeight by remember { mutableStateOf(0.0) }
     var energy by remember { mutableStateOf(0) }
+    var protein by remember { mutableStateOf(0) }
 
     Card(
         modifier = modifier.padding(8.dp),
@@ -208,6 +210,7 @@ fun DailyNeeds(
                     chosenWeight =  if (weight.isNotEmpty())
                         weight.toDouble() else 0.0
                     energy = getEnergyByBMR(userAge.value, chosenWeight, isGenderFemale).toInt()
+                    protein = (((12.0 / 100) * energy) / 4).roundToInt()
                     Toast.makeText(
                         context,
                         String.format(
@@ -261,7 +264,7 @@ fun DailyNeeds(
                     modifier = modifier.height(18.dp)
                 )
                 Text(
-                    text = "Energi: $energy kkal, Protein: 0 gram,",
+                    text = "Energi: $energy kkal, Protein: $protein gram,",
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
