@@ -99,6 +99,7 @@ fun DailyNeeds(
     var energy by remember { mutableStateOf(0) }
     var protein by remember { mutableStateOf(0) }
     var fat by remember { mutableStateOf(0) }
+    var carbo by remember { mutableStateOf(0) }
 
     Card(
         modifier = modifier.padding(8.dp),
@@ -213,6 +214,7 @@ fun DailyNeeds(
                     energy = getEnergyByBMR(userAge.value, chosenWeight, isGenderFemale).toInt()
                     protein = (((12.0 / 100) * energy) / 4).roundToInt()
                     fat = (((25.0 / 100) * energy) / 9).roundToInt()
+                    carbo = (((63.0 / 100) * energy) / 4).roundToInt()
                     Toast.makeText(
                         context,
                         String.format(
@@ -274,7 +276,7 @@ fun DailyNeeds(
                     modifier = modifier.height(8.dp)
                 )
                 Text(
-                    text = "Lemak: $fat gram, KH: 0 gram",
+                    text = "Lemak: $fat gram, KH: $carbo gram",
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
