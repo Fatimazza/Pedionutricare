@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -86,6 +87,7 @@ fun DailyNeeds(
     var simpleGender by remember { mutableStateOf(genderOptions[0]) }
     var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
+    var isResultCardVisible by remember { mutableStateOf(false) }
 
     Card(
         modifier = modifier.padding(8.dp),
@@ -185,6 +187,7 @@ fun DailyNeeds(
             Spacer(modifier = Modifier.height(10.dp))
             Button(
                 onClick = {
+                    isResultCardVisible = true
                     isGenderFemale = simpleGender == genderOptions[1]
                     val choosenWeight = if (weight.isNotEmpty())
                         weight.toDouble() else 0.0
@@ -210,66 +213,72 @@ fun DailyNeeds(
         }
     }
 
-    Card(
-        modifier = modifier.padding(8.dp),
-        elevation = 4.dp
+    AnimatedVisibility(
+        visible = isResultCardVisible,
+        enter = fadeIn(),
+        exit = fadeOut()
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top,
-            modifier = modifier
-                .fillMaxSize()
-                .padding(8.dp, 8.dp),
+        Card(
+            modifier = modifier.padding(8.dp),
+            elevation = 4.dp,
         ) {
-            Spacer(
-                modifier = modifier.height(16.dp)
-            )
-            Text(
-                text = "Kebutuhan Gizi",
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                modifier = modifier.fillMaxWidth(),
-            )
-            Spacer(
-                modifier = modifier.height(18.dp)
-            )
-            Text(
-                text = "Energi: 0 kkal, Protein: 0 gram,",
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
-            )
-            Spacer(
-                modifier = modifier.height(8.dp)
-            )
-            Text(
-                text = "Lemak: 0 gram, KH: 0 gram",
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
-            )
-            Spacer(
-                modifier = modifier.height(18.dp)
-            )
-            Text(
-                text = "Kebutuhan Bahan Makanan Sehari",
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                modifier = modifier.fillMaxWidth(),
-            )
-            Spacer(
-                modifier = modifier.height(8.dp)
-            )
-            val painter = painterResource(R.drawable.img_eng_1000)
-            Image(
-                painter = painter,
-                contentDescription = "Daily Food Needs Image",
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top,
                 modifier = modifier
-                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
-                    .fillMaxWidth()
-                    .padding(8.dp, 0.dp),
-                contentScale = ContentScale.Fit
-            )
+                    .fillMaxSize()
+                    .padding(8.dp, 8.dp),
+            ) {
+                Spacer(
+                    modifier = modifier.height(16.dp)
+                )
+                Text(
+                    text = "Kebutuhan Gizi",
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    modifier = modifier.fillMaxWidth(),
+                )
+                Spacer(
+                    modifier = modifier.height(18.dp)
+                )
+                Text(
+                    text = "Energi: 0 kkal, Protein: 0 gram,",
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 20.sp
+                )
+                Spacer(
+                    modifier = modifier.height(8.dp)
+                )
+                Text(
+                    text = "Lemak: 0 gram, KH: 0 gram",
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 20.sp
+                )
+                Spacer(
+                    modifier = modifier.height(18.dp)
+                )
+                Text(
+                    text = "Kebutuhan Bahan Makanan Sehari",
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    modifier = modifier.fillMaxWidth(),
+                )
+                Spacer(
+                    modifier = modifier.height(8.dp)
+                )
+                val painter = painterResource(R.drawable.img_eng_1000)
+                Image(
+                    painter = painter,
+                    contentDescription = "Daily Food Needs Image",
+                    modifier = modifier
+                        .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                        .fillMaxWidth()
+                        .padding(8.dp, 0.dp),
+                    contentScale = ContentScale.Fit
+                )
+            }
         }
     }
 }
