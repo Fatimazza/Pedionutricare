@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,7 +17,9 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -253,6 +256,19 @@ fun DailyNeeds(
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 modifier = modifier.fillMaxWidth(),
+            )
+            Spacer(
+                modifier = modifier.height(8.dp)
+            )
+            val painter = painterResource(R.drawable.img_eng_1000)
+            Image(
+                painter = painter,
+                contentDescription = "Daily Food Needs Image",
+                modifier = modifier
+                    .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
+                    .fillMaxWidth()
+                    .padding(8.dp, 0.dp),
+                contentScale = ContentScale.Fit
             )
         }
     }
