@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.*
@@ -215,15 +214,6 @@ fun DailyNeeds(
                     protein = (((12.0 / 100) * energy) / 4).roundToInt()
                     fat = (((25.0 / 100) * energy) / 9).roundToInt()
                     carbo = (((63.0 / 100) * energy) / 4).roundToInt()
-                    Toast.makeText(
-                        context,
-                        String.format(
-                            "%.1f", getEnergyByBMR
-                                (userAge.value, chosenWeight, isGenderFemale)
-                                .toDouble()
-                        ),
-                        Toast.LENGTH_LONG
-                    ).show()
                     focusManager.clearFocus()
                 },
                 modifier = Modifier
