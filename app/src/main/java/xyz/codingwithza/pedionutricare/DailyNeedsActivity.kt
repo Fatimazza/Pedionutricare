@@ -167,6 +167,7 @@ fun DailyNeeds(
                         DropdownMenuItem(onClick = {
                             simpleGender = it
                             isSimpleDropDownExpanded = false
+                            isResultCardVisible = false
                         }, modifier = Modifier
                             .wrapContentWidth()) { Text(it) }
                     }
@@ -184,6 +185,7 @@ fun DailyNeeds(
                             value.takeIf { it.contains(" ") }
                                 ?.replace(" ", "") ?: value
                     }
+                    isResultCardVisible = false
                 },
                 placeholder = { Text(text = "20.5 Kg") },
                 label = { Text("Berat Badan") },
