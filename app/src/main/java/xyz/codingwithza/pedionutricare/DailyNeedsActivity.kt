@@ -260,7 +260,7 @@ fun DailyNeeds(
                     modifier = modifier.height(18.dp)
                 )
                 Text(
-                    text = "Energi: $energy kkal, Protein: $protein gram,",
+                    text = "Energi: $energy kkal, Protein: $protein g,",
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
@@ -268,7 +268,7 @@ fun DailyNeeds(
                     modifier = modifier.height(8.dp)
                 )
                 Text(
-                    text = "Lemak: $fat gram, KH: $carbo gram",
+                    text = "Lemak: $fat g, Karbohidrat: $carbo g",
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
