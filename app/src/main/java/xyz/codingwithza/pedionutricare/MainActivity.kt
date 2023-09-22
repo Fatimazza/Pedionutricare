@@ -1,5 +1,6 @@
 package xyz.codingwithza.pedionutricare
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PedionutricareApp() {
     Scaffold(

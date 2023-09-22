@@ -1,5 +1,6 @@
 package xyz.codingwithza.pedionutricare
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -40,6 +41,7 @@ class FoodSampleActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun FoodSampleScreen(
     modifier: Modifier = Modifier
