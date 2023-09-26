@@ -1,5 +1,6 @@
 package xyz.codingwithza.pedionutricare
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -48,6 +49,7 @@ class DailyNeedsActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun DailyNeedsScreen(
     modifier: Modifier = Modifier
