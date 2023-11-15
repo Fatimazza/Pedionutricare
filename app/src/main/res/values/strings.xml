@@ -45,4 +45,12 @@
     <string name="exchanged_milk_and_its_product">Susu dan Olahannya</string>
     <string name="exchanged_oil_and_fat">Minyak dan Lemak</string>
     <string name="exchanged_calorie_free_food">Makanan Tanpa Kalori</string>
+    <string name="sample_name">Halo, %1$s!</string>
+    <string name="sample_age">Usia kamu %1$s tahun</string>
+    <string name="sample_menu_titile">Contoh Menu Usia %1$s Tahun</string>
+    <string name="sample_image_desc">Exchanged Food Image</string>
+    <string name="sample_1_to_6">1 - 6</string>
+    <string name="sample_7_to_9">7 - 9</string>
+    <string name="sample_10_to_12">10 - 12</string>
+    <string name="sample_13_to_18">13 - 18</string>
 </resources>

@@ -93,14 +93,14 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
-                text = "Halo, ${userName.value}!",
+                text = stringResource(R.string.sample_name, userName.value),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 modifier = modifier.fillMaxWidth(),
             )
             Text(
-                text = "Usia kamu ${userAge.value} tahun",
+                text = stringResource(R.string.sample_age, userAge.value),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
@@ -110,7 +110,7 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
-                text = "Contoh Menu Usia ${getFoodTitle(userAge.value)} Tahun",
+                text = stringResource(R.string.sample_menu_titile, stringResource(id = getFoodTitle(userAge.value))),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
@@ -122,7 +122,7 @@ fun FoodSample(
             val painter = painterResource(getFoodImage(userAge.value))
             Image(
                 painter = painter,
-                contentDescription = "Exchanged Food Image",
+                contentDescription = stringResource(R.string.sample_image_desc),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
@@ -141,12 +141,12 @@ fun getFoodImage(age: Int): Int {
     }
 }
 
-fun getFoodTitle(age: Int): String {
+fun getFoodTitle(age: Int): Int {
     return when (age) {
-        in 0..6 -> "1 - 6"
-        in 7..9 -> "7 - 9"
-        in 10..12 -> "10 - 12"
-        else -> "13 - 18"
+        in 0..6 -> R.string.sample_1_to_6
+        in 7..9 -> R.string.sample_7_to_9
+        in 10..12 -> R.string.sample_10_to_12
+        else -> R.string.sample_13_to_18
     }
 }
 
