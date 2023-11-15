@@ -67,7 +67,9 @@ fun MainContent(
     val context = LocalContext.current
     val version = BuildConfig.VERSION_NAME
 
-    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+        (context as? Activity)?.requestedOrientation = it
+    }
 
     LazyColumn(
         modifier = modifier
@@ -78,7 +80,10 @@ fun MainContent(
     )
     {
         items(menuItems) { data ->
-            ButtonImageMenu(image = data.image, title = data.title, onClick = { openOtherScreen(data, context)})
+            ButtonImageMenu(
+                image = data.image,
+                title = data.title,
+                onClick = { openOtherScreen(data, context) })
         }
         item {
             Text(
@@ -93,14 +98,14 @@ fun MainContent(
 }
 
 fun openOtherScreen(data: Menu, context: Context) {
-    when(data.id.toInt()){
+    when (data.id.toInt()) {
         1 -> context.startActivity(Intent(context, NutritionNeedsActivity::class.java))
         2 -> context.startActivity(Intent(context, NutritionTipActivity::class.java))
         3 -> context.startActivity(Intent(context, FoodRecommendationActivity::class.java))
         4 -> context.startActivity(Intent(context, FoodExchangedActivity::class.java))
         5 -> context.startActivity(Intent(context, FoodSampleActivity::class.java))
         6 -> context.startActivity(Intent(context, DailyNeedsActivity::class.java))
-        else  -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
+        else -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
     }
 }
 
