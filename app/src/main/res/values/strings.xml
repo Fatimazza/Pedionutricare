@@ -53,4 +53,11 @@
     <string name="sample_7_to_9">7 - 9</string>
     <string name="sample_10_to_12">10 - 12</string>
     <string name="sample_13_to_18">13 - 18</string>
+    <string name="daily_carbo_desc">Gambar Karbohidrat</string>
+    <string name="daily_protein_desc">Gambar Protein</string>
+    <string name="daily_fat_desc">Gambar Lemak</string>
+    <string name="daily_vitamin_mineral_desc">Makanan Sumber Vitamin dan Mineral</string>
+    <string name="daily_nutrition_column">Zat Gizi</string>
+    <string name="daily_food_column">Sumber Makanan</string>
+    <string name="daily_needs_fluid">Tabel Kebutuhan Cairan</string>
 </resources>

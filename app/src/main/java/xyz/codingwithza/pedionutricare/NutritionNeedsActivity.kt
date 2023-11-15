@@ -60,7 +60,9 @@ fun NutritionNeedsScreen(
         })
     }) { innerPadding ->
         val context = LocalContext.current
-        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+            (context as? Activity)?.requestedOrientation = it
+        }
 
         val needItems = NeedsDataSource.needItems
         LazyColumn(
@@ -88,7 +90,7 @@ fun NutritionNeeds(
     ) {
         Column(
             modifier.padding(8.dp)
-        ){
+        ) {
             Text(
                 text = data.title,
                 fontWeight = FontWeight.Bold,
@@ -118,64 +120,68 @@ fun NutritionNeedAdditional(
     val columnNut2Weight = 0.65f
     when (index) {
         0 -> {
-            val painter  = painterResource(id = R.drawable.img_carbo)
+            val painter = painterResource(id = R.drawable.img_carbo)
             Image(
                 painter = painter,
-                contentDescription = "Gambar Karbohidrat",
+                contentDescription = stringResource(R.string.daily_carbo_desc),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
                 contentScale = ContentScale.Fit
             )
         }
+
         1 -> {
-            val painter  = painterResource(id = R.drawable.img_protein)
+            val painter = painterResource(id = R.drawable.img_protein)
             Image(
                 painter = painter,
-                contentDescription = "Gambar Protein",
+                contentDescription = stringResource(R.string.daily_protein_desc),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
                 contentScale = ContentScale.Fit
             )
         }
+
         2 -> {
-            val painter  = painterResource(id = R.drawable.img_fat)
+            val painter = painterResource(id = R.drawable.img_fat)
             Image(
                 painter = painter,
-                contentDescription = "Gambar Lemak",
+                contentDescription = stringResource(R.string.daily_fat_desc),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
                 contentScale = ContentScale.Fit
             )
         }
+
         3 -> {
             Spacer(
                 modifier = modifier.height(18.dp)
             )
             Text(
-                text = "Makanan Sumber Vitamin dan Mineral",
+                text = stringResource(R.string.daily_vitamin_mineral_desc),
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp
             )
             Row(Modifier.background(DarkYellow)) {
-                TableCell(text = "Zat Gizi", columnNut1Weight)
-                TableCell(text = "Sumber Makanan", columnNut2Weight)
+                TableCell(text = stringResource(R.string.daily_nutrition_column), columnNut1Weight)
+                TableCell(text = stringResource(R.string.daily_food_column), columnNut2Weight)
             }
-            nutritionItems.forEach{ item ->
+            nutritionItems.forEach { item ->
                 Row(Modifier.fillMaxWidth()) {
                     TableCell(text = item.nutrition, columnNut1Weight)
                     TableCell(text = item.source, columnNut2Weight)
                 }
             }
         }
+
         4 -> {
-            val painter  = painterResource(id = R.drawable.table_liquid)
+            val painter = painterResource(id = R.drawable.table_liquid)
             Image(
                 painter = painter,
-                contentDescription = "Tabel Kebutuhan Cairan",
+                contentDescription = stringResource(R.string.daily_needs_fluid),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
