@@ -70,7 +70,7 @@ fun FoodExchangedScreen(
                 .background(Yellow_Awake)
         ) {
             items(exchangedItems) { data ->
-                FoodExchangedItem(exchangedItems, data)
+                FoodExchangedItem(data)
             }
         }
     }
@@ -78,7 +78,6 @@ fun FoodExchangedScreen(
 
 @Composable
 fun FoodExchangedItem(
-    needItems: List<ExchangeFood>,
     data: ExchangeFood,
     modifier: Modifier = Modifier
 ) {
@@ -87,7 +86,7 @@ fun FoodExchangedItem(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
     ) {
-        Column() {
+        Column {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
