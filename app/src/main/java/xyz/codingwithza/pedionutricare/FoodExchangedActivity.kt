@@ -144,7 +144,7 @@ fun ExchangedFoodDesc(
             val painter = painterResource(id = image.image)
             Image(
                 painter = painter,
-                contentDescription = "Exchanged Food Image",
+                contentDescription = stringResource(R.string.exchanged_food_image_desc),
                 modifier = modifier
                     .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                     .fillMaxWidth(),
@@ -164,7 +164,7 @@ private fun FoodExchangedButton(
             imageVector = if (expanded) Icons.Filled.ExpandLess
             else Icons.Filled.ExpandMore,
             tint = Yellow_Deep,
-            contentDescription = "Exchanged Food Expand Button"
+            contentDescription = stringResource(R.string.exchanged_food_expand_button)
         )
     }
 }

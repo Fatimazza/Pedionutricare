@@ -35,4 +35,6 @@
     <string name="daily_needs_image">Daily Food Needs Image</string>
     <string name="daily_weight">Berat Badan</string>
     <string name="daily_weight_placeholder">20.5 Kg</string>
+    <string name="exchanged_food_image_desc">Exchanged Food Image</string>
+    <string name="exchanged_food_expand_button">Exchanged Food Expand Button</string>
 </resources>
