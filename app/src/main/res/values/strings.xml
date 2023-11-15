@@ -14,5 +14,11 @@
     <string name="login_age">Masukkan Umur</string>
     <string name="login_button">Masuk</string>
     <string name="home_version">Versi %1$s</string>
+    <string name="menu_nutrition_needs">Kebutuhan Zat Gizi</string>
+    <string name="menu_nutrition_tips">Tips Pemenuhan Gizi Anak</string>
+    <string name="menu_food_recommendation">Bahan Makanan yang Dianjurkan dan Tidak</string>
+    <string name="menu_food_exchanged">Bahan Makanan Penukar</string>
+    <string name="menu_food_sample">Contoh Menu</string>
+    <string name="menu_daily_needs">Kebutuhan Bahan Makanan Sehari</string>
     <string name="menu_other">Dalam proses pengembangan</string>
 </resources>

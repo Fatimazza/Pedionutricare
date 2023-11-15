@@ -82,7 +82,7 @@ fun MainContent(
         items(menuItems) { data ->
             ButtonImageMenu(
                 image = data.image,
-                title = data.title,
+                title = stringResource(id = data.title),
                 onClick = { openOtherScreen(data, context) })
         }
         item {
