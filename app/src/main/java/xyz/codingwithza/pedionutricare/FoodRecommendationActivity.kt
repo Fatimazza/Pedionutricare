@@ -67,7 +67,7 @@ fun FoodRecommendationScreen(
         ) {
             val recomItems = RecommendationDataSource.recommendationItems
             items(recomItems) { data ->
-                FoodRecommendation(recomItems, data)
+                FoodRecommendation(data)
             }
         }
     }
@@ -75,7 +75,6 @@ fun FoodRecommendationScreen(
 
 @Composable
 fun FoodRecommendation(
-    recomItems: List<Recommendation>,
     data: Recommendation,
     modifier: Modifier = Modifier
 ) {
