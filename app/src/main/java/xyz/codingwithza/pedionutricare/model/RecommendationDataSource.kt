@@ -1,54 +1,56 @@
 package xyz.codingwithza.pedionutricare.model
 
+import xyz.codingwithza.pedionutricare.R
+
 object RecommendationDataSource {
     val recommendationItems = listOf(
         Recommendation(
             1,
-            "Karbohidrat",
-            "nasi putih, nasi merah, kentang, talas, ubi, pasta, roti",
-            "roti yang tidak dibungkus steril, mi instan"
+            R.string.recom_carbo_title,
+            R.string.recom_carbo_yes,
+            R.string.recom_carbo_not
         ),
         Recommendation(
             2,
-            "Protein hewani",
-            "daging sapi, daging kambing, ayam yang baru/beku yang dimasak matang. Sosis ayam, corned beef, yang kualitas baik. Ikan segar/beku yang dimasak matang, ikan kaleng yang dimasak, telur yang digoreng/direbus matang",
-            "daging yang segar/beku tanpa dimasak, telur dan ikan yang mentah/dimasak setengah matang, kerang-kerangan"
+            R.string.recom_animal_title,
+            R.string.recom_animal_yes,
+            R.string.recom_animal_not
         ),
         Recommendation(
             3,
-            "Protein nabati",
-            "tahu, tempe, kacang hijau, kacang merah, kacang kedelai",
-            "protein nabati yang diawetkan atau dikalengkan"
+            R.string.recom_veg_title,
+            R.string.recom_veg_yes,
+            R.string.recom_veg_not
         ),
         Recommendation(
             4,
-            "Lemak",
-            "minyak tak jenuh seperti minyak jagung dan minyak kedelai",
-            "tidak ada"
+            R.string.recom_fat_title,
+            R.string.recom_fat_yes,
+            R.string.recom_fat_not
         ),
         Recommendation(
             5,
-            "Sayuran",
-            "sayuran segar yang dicuci bersih dan dimasak",
-            "sayuran mentah"
+            R.string.recom_veggies_title,
+            R.string.recom_veggies_yes,
+            R.string.recom_veggies_not
         ),
         Recommendation(
             6,
-            "Buah",
-            "buah segar",
-            "buah yang dikeringkan/manisan"
+            R.string.recom_fruits_title,
+            R.string.recom_fruits_yes,
+            R.string.recom_fruits_not
         ),
         Recommendation(
             7,
-            "Susu dan hasil olahannya",
-            "susu UHT, susu yang dipasteurisasi, keju dan yoghurt yang dipasteurisasi",
-            "susu yang tidak dipasteurisasi, krim, keju dan yoghurt yang tidak dipasteurisasi"
+            R.string.recom_milk_title,
+            R.string.recom_milk_yes,
+            R.string.recom_milk_not
         ),
         Recommendation(
             8,
-            "Makan selingan",
-            "dikemas per porsi dan aman",
-            "tidak dikemas dalam 1 porsi"
+            R.string.recom_snack_title,
+            R.string.recom_snack_yes,
+            R.string.recom_snack_not
         ),
     )
 }

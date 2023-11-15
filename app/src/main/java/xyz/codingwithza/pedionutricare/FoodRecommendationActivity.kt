@@ -88,7 +88,7 @@ fun FoodRecommendation(
                 .padding(8.dp)
         ) {
             Text(
-                text = data.title,
+                text = stringResource(id = data.title),
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
                 modifier = modifier.padding(8.dp)
@@ -118,7 +118,7 @@ fun FoodRecommendation(
                 )
             }
             Text(
-                text = data.recommended,
+                text = stringResource(id = data.recommended),
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
@@ -147,7 +147,7 @@ fun FoodRecommendation(
                 )
             }
             Text(
-                text = data.notrecommended,
+                text = stringResource(id = data.notrecommended),
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,

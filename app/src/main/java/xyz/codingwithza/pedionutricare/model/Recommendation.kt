@@ -1,8 +1,10 @@
 package xyz.codingwithza.pedionutricare.model
 
+import androidx.annotation.StringRes
+
 data class Recommendation (
     val id: Int,
-    val title: String,
-    val recommended: String,
-    val notrecommended: String,
+    @StringRes val title: Int,
+    @StringRes val recommended: Int,
+    @StringRes val notrecommended: Int,
 )
