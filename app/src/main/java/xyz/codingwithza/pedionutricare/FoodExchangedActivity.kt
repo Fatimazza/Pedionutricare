@@ -59,11 +59,15 @@ fun FoodExchangedScreen(
         },
     ) {
         val context = LocalContext.current
-        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+            (context as? Activity)?.requestedOrientation = it
+        }
 
         val exchangedItems = ExchangeFoodDataSource.exchangedItems
         LazyColumn(
-            modifier.fillMaxSize().background(Yellow_Awake)
+            modifier
+                .fillMaxSize()
+                .background(Yellow_Awake)
         ) {
             items(exchangedItems) { data ->
                 FoodExchangedItem(exchangedItems, data)
