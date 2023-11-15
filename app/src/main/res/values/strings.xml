@@ -21,4 +21,18 @@
     <string name="menu_food_sample">Contoh Menu</string>
     <string name="menu_daily_needs">Kebutuhan Bahan Makanan Sehari</string>
     <string name="menu_other">Dalam proses pengembangan</string>
+    <string name="daily_gender_male">Laki - laki</string>
+    <string name="daily_gender_female">Perempuan</string>
+    <string name="daily_name">Nama: %1$s</string>
+    <string name="daily_age">Usia: %1$s tahun</string>
+    <string name="daily_gender">Jenis Kelamin</string>
+    <string name="daily_gender_placeholder">Laki-laki / Perempuan</string>
+    <string name="daily_result_button">Lihat Hasil</string>
+    <string name="daily_nutrition_needs">Kebutuhan Gizi</string>
+    <string name="daily_energy_and_protein">Energi: %1$s kkal, Protein: %2$s g,</string>
+    <string name="daily_fat_and_carbo">Lemak: %1$s g, Karbohidrat: %2$s g</string>
+    <string name="daily_needs_a_day">Kebutuhan Bahan Makanan Sehari</string>
+    <string name="daily_needs_image">Daily Food Needs Image</string>
+    <string name="daily_weight">Berat Badan</string>
+    <string name="daily_weight_placeholder">20.5 Kg</string>
 </resources>

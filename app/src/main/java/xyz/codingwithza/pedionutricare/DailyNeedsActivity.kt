@@ -94,7 +94,10 @@ fun DailyNeeds(
     val focusManager = LocalFocusManager.current
 
     var weight by remember { mutableStateOf("") }
-    val genderOptions = listOf("Laki - laki", "Perempuan")
+    val genderOptions = listOf(
+        stringResource(R.string.daily_gender_male),
+        stringResource(R.string.daily_gender_female)
+    )
     var simpleGender by remember { mutableStateOf(genderOptions[0]) }
     var isGenderFemale by remember { mutableStateOf(false) }
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
@@ -121,7 +124,7 @@ fun DailyNeeds(
                 modifier = modifier.height(16.dp)
             )
             Text(
-                text = "Nama: ${userName.value}",
+                text = stringResource(R.string.daily_name, userName.value),
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 modifier = Modifier
@@ -132,7 +135,7 @@ fun DailyNeeds(
                 modifier = modifier.height(8.dp)
             )
             Text(
-                text = "Usia: ${userAge.value} tahun",
+                text = stringResource(R.string.daily_age, userAge.value),
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 modifier = Modifier
@@ -146,8 +149,8 @@ fun DailyNeeds(
                 OutlinedTextField(
                     value = simpleGender,
                     onValueChange = { },
-                    placeholder = { Text(text = "Laki-laki / Perempuan") },
-                    label = { Text("Jenis Kelamin") },
+                    placeholder = { Text(text = stringResource(R.string.daily_gender_placeholder)) },
+                    label = { Text(stringResource(R.string.daily_gender)) },
                     enabled = false,
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         disabledTextColor = LocalContentColor
@@ -193,8 +196,8 @@ fun DailyNeeds(
                     }
                     isResultCardVisible = false
                 },
-                placeholder = { Text(text = "20.5 Kg") },
-                label = { Text("Berat Badan") },
+                placeholder = { Text(text = stringResource(R.string.daily_weight_placeholder)) },
+                label = { Text(stringResource(R.string.daily_weight)) },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = Yellow_Deep,
                     unfocusedBorderColor = DarkGray,
@@ -231,7 +234,10 @@ fun DailyNeeds(
                     backgroundColor = Yellow_Deep
                 )
             ) {
-                Text(text = "Lihat Hasil", textAlign = TextAlign.Center)
+                Text(
+                    text = stringResource(R.string.daily_result_button),
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
@@ -256,7 +262,7 @@ fun DailyNeeds(
                     modifier = modifier.height(16.dp)
                 )
                 Text(
-                    text = "Kebutuhan Gizi",
+                    text = stringResource(R.string.daily_nutrition_needs),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp,
@@ -266,7 +272,7 @@ fun DailyNeeds(
                     modifier = modifier.height(18.dp)
                 )
                 Text(
-                    text = "Energi: $energy kkal, Protein: $protein g,",
+                    text = stringResource(R.string.daily_energy_and_protein, energy, protein),
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
@@ -274,7 +280,7 @@ fun DailyNeeds(
                     modifier = modifier.height(8.dp)
                 )
                 Text(
-                    text = "Lemak: $fat g, Karbohidrat: $carbo g",
+                    text = stringResource(R.string.daily_fat_and_carbo, fat, carbo),
                     fontWeight = FontWeight.Normal,
                     fontSize = 20.sp
                 )
@@ -282,7 +288,7 @@ fun DailyNeeds(
                     modifier = modifier.height(18.dp)
                 )
                 Text(
-                    text = "Kebutuhan Bahan Makanan Sehari",
+                    text = stringResource(R.string.daily_needs_a_day),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp,
@@ -294,7 +300,7 @@ fun DailyNeeds(
                 val painter = painterResource(getDailyImage(energy))
                 Image(
                     painter = painter,
-                    contentDescription = "Daily Food Needs Image",
+                    contentDescription = stringResource(R.string.daily_needs_image),
                     modifier = modifier
                         .aspectRatio(painter.intrinsicSize.width / painter.intrinsicSize.height)
                         .fillMaxWidth()
