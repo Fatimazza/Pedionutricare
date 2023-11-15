@@ -103,11 +103,11 @@ fun DailyNeeds(
     var isSimpleDropDownExpanded by remember { mutableStateOf(false) }
     var isResultCardVisible by remember { mutableStateOf(false) }
 
-    var chosenWeight by remember { mutableStateOf(0.0) }
-    var energy by remember { mutableStateOf(0) }
-    var protein by remember { mutableStateOf(0) }
-    var fat by remember { mutableStateOf(0) }
-    var carbo by remember { mutableStateOf(0) }
+    var chosenWeight by remember { mutableDoubleStateOf(0.0) }
+    var energy by remember { mutableIntStateOf(0) }
+    var protein by remember { mutableIntStateOf(0) }
+    var fat by remember { mutableIntStateOf(0) }
+    var carbo by remember { mutableIntStateOf(0) }
 
     Card(
         modifier = modifier.padding(8.dp),
