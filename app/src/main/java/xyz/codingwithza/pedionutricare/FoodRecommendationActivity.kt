@@ -79,7 +79,9 @@ fun FoodRecommendation(
         elevation = 4.dp
     ) {
         Column(
-            modifier.fillMaxSize().padding(8.dp)
+            modifier
+                .fillMaxSize()
+                .padding(8.dp)
         ) {
             Text(
                 text = data.title,
@@ -90,14 +92,14 @@ fun FoodRecommendation(
             Spacer(
                 modifier = modifier.height(20.dp)
             )
-            Row (
+            Row(
                 modifier = modifier.padding(
                     start = 8.dp,
                     top = 0.dp,
                     bottom = 0.dp,
                     end = 0.dp
                 )
-            ){
+            ) {
                 Image(
                     painterResource(R.drawable.ic_check),
                     contentDescription = "",
@@ -119,7 +121,7 @@ fun FoodRecommendation(
                 lineHeight = 25.sp,
                 modifier = modifier.padding(8.dp)
             )
-            Row (
+            Row(
                 modifier = modifier.padding(
                     start = 8.dp,
                     top = 0.dp,
