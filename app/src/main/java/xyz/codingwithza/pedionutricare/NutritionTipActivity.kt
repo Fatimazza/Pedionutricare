@@ -67,7 +67,9 @@ fun NutritionTipScreen(
         })
     }) { innerPadding ->
         val context = LocalContext.current
-        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+            (context as? Activity)?.requestedOrientation = it
+        }
 
         val tipItems = TipDataSource.tipItems
         LazyColumn(
@@ -77,7 +79,7 @@ fun NutritionTipScreen(
                 .background(Yellow_Awake)
         ) {
             items(tipItems) { data ->
-                NutritionTip(tipItems, data)
+                NutritionTip(data)
             }
         }
     }
@@ -85,7 +87,6 @@ fun NutritionTipScreen(
 
 @Composable
 fun NutritionTip(
-    tipItems: List<Tip>,
     data: Tip,
     modifier: Modifier = Modifier
 ) {
@@ -94,7 +95,7 @@ fun NutritionTip(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
     ) {
-        Column() {
+        Column {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -127,7 +128,7 @@ fun NutritionTip(
 fun NutritionTipDesc(
     data: Tip,
     modifier: Modifier = Modifier
-){
+) {
     Column(
         modifier = modifier.padding(
             start = 16.dp,
