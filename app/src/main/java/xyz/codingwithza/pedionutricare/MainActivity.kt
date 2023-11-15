@@ -1,6 +1,5 @@
 package xyz.codingwithza.pedionutricare
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -43,7 +42,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PedionutricareApp() {
     Scaffold(
@@ -54,14 +52,16 @@ fun PedionutricareApp() {
                 }
             )
         }
-    ) {
-        MainContent()
+    ) { innerPadding ->
+        MainContent(
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
 @Composable
 fun MainContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier
 ) {
     val menuItems = MenuDataSource.menuItems
     val context = LocalContext.current
@@ -87,7 +87,7 @@ fun MainContent(
         }
         item {
             Text(
-                text = "Versi $version",
+                text = stringResource(R.string.home_version, version),
                 textAlign = TextAlign.Justify,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp,
@@ -105,7 +105,8 @@ fun openOtherScreen(data: Menu, context: Context) {
         4 -> context.startActivity(Intent(context, FoodExchangedActivity::class.java))
         5 -> context.startActivity(Intent(context, FoodSampleActivity::class.java))
         6 -> context.startActivity(Intent(context, DailyNeedsActivity::class.java))
-        else -> Toast.makeText(context, "Dalam proses pengembangan", Toast.LENGTH_SHORT).show()
+        else -> Toast.makeText(context, context.getString(R.string.menu_other), Toast.LENGTH_SHORT)
+            .show()
     }
 }
 

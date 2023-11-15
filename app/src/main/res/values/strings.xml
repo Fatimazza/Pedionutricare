@@ -13,4 +13,6 @@
     <string name="login_age_placeholder">10 Tahun</string>
     <string name="login_age">Masukkan Umur</string>
     <string name="login_button">Masuk</string>
+    <string name="home_version">Versi %1$s</string>
+    <string name="menu_other">Dalam proses pengembangan</string>
 </resources>
