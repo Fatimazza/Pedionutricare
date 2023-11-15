@@ -37,4 +37,12 @@
     <string name="daily_weight_placeholder">20.5 Kg</string>
     <string name="exchanged_food_image_desc">Exchanged Food Image</string>
     <string name="exchanged_food_expand_button">Exchanged Food Expand Button</string>
+    <string name="exchanged_carbo">Karbohidrat</string>
+    <string name="exchanged_animal_protein">Protein Hewani</string>
+    <string name="exchanged_vegetable_protein">Protein Nabati</string>
+    <string name="exchanged_vegetables">Sayuran</string>
+    <string name="exchanged_fruits_and_sugar">Buah dan Gula</string>
+    <string name="exchanged_milk_and_its_product">Susu dan Olahannya</string>
+    <string name="exchanged_oil_and_fat">Minyak dan Lemak</string>
+    <string name="exchanged_calorie_free_food">Makanan Tanpa Kalori</string>
 </resources>

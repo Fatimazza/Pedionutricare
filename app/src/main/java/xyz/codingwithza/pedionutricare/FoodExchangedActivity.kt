@@ -109,7 +109,7 @@ fun FoodExchangedItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = data.title,
+                    text = stringResource(id = data.title),
                     textAlign = TextAlign.Justify,
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp

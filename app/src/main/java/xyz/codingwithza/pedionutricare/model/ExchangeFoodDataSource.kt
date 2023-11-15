@@ -6,7 +6,7 @@ object ExchangeFoodDataSource {
     val exchangedItems = listOf(
         ExchangeFood(
             1,
-            "Karbohidrat",
+            R.string.exchanged_carbo,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_carbo
@@ -15,7 +15,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             2,
-            "Protein Hewani",
+            R.string.exchanged_animal_protein,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_prohe_1
@@ -30,7 +30,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             3,
-            "Protein Nabati",
+            R.string.exchanged_vegetable_protein,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_prona
@@ -39,7 +39,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             4,
-            "Sayuran",
+            R.string.exchanged_vegetables,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_veg
@@ -48,7 +48,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             5,
-            "Buah dan Gula",
+            R.string.exchanged_fruits_and_sugar,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_buah
@@ -57,7 +57,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             6,
-            "Susu dan Olahannya",
+            R.string.exchanged_milk_and_its_product,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_milk_1
@@ -72,7 +72,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             7,
-            "Minyak dan Lemak",
+            R.string.exchanged_oil_and_fat,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_fat
@@ -81,7 +81,7 @@ object ExchangeFoodDataSource {
         ),
         ExchangeFood(
             8,
-            "Makanan Tanpa Kalori",
+            R.string.exchanged_calorie_free_food,
             listOf(
                 ExchangeFoodImage(
                     1, R.drawable.img_ex_no_calory
