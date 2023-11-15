@@ -13,6 +13,7 @@ android {
         targetSdk 33
         versionCode 3
         versionName "1.0.8"
+        compileSdkPreview "UpsideDownCake"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
