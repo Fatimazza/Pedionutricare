@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'xyz.codingwithza.pedionutricare'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "xyz.codingwithza.pedionutricare"
@@ -13,7 +13,6 @@ android {
         targetSdk 33
         versionCode 3
         versionName "1.0.8"
-        compileSdkPreview "UpsideDownCake"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
