@@ -169,7 +169,7 @@ private fun NutritionTipButton(
             imageVector = if (expanded) Icons.Filled.ExpandLess
             else Icons.Filled.ExpandMore,
             tint = Yellow_Deep,
-            contentDescription = "Nutrition Tip Expand Button"
+            contentDescription = stringResource(R.string.tips_expand_button)
         )
     }
 }

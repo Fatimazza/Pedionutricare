@@ -60,4 +60,5 @@
     <string name="daily_nutrition_column">Zat Gizi</string>
     <string name="daily_food_column">Sumber Makanan</string>
     <string name="daily_needs_fluid">Tabel Kebutuhan Cairan</string>
+    <string name="tips_expand_button">Nutrition Tip Expand Button</string>
 </resources>
