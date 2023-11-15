@@ -1,6 +1,5 @@
 package xyz.codingwithza.pedionutricare
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -8,7 +7,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
@@ -41,7 +45,6 @@ class FoodSampleActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun FoodSampleScreen(
     modifier: Modifier = Modifier
@@ -50,9 +53,11 @@ fun FoodSampleScreen(
         TopAppBar(title = {
             Text(stringResource(R.string.app_name))
         })
-    }) {
+    }) { innerPadding ->
         LazyColumn(
-            modifier.background(Yellow_Awake)
+            modifier
+                .padding(innerPadding)
+                .background(Yellow_Awake)
         ) {
             item {
                 FoodSample()
@@ -68,7 +73,9 @@ fun FoodSample(
     val context = LocalContext.current
     val dataStore = StoreUserData(context)
 
-    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+        (context as? Activity)?.requestedOrientation = it
+    }
 
     val userName = dataStore
         .getUserName.collectAsState(initial = "Hero")
@@ -81,7 +88,7 @@ fun FoodSample(
     ) {
         Column(
             modifier.padding(4.dp)
-        ){
+        ) {
             Spacer(
                 modifier = modifier.height(16.dp)
             )
@@ -125,7 +132,7 @@ fun FoodSample(
     }
 }
 
-fun getFoodImage(age: Int) : Int {
+fun getFoodImage(age: Int): Int {
     return when (age) {
         in 0..6 -> R.drawable.img_sample_1ke6
         in 7..9 -> R.drawable.img_sample_7ke9
@@ -134,7 +141,7 @@ fun getFoodImage(age: Int) : Int {
     }
 }
 
-fun getFoodTitle(age: Int) : String {
+fun getFoodTitle(age: Int): String {
     return when (age) {
         in 0..6 -> "1 - 6"
         in 7..9 -> "7 - 9"
