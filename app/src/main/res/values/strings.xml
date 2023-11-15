@@ -7,4 +7,10 @@
     <string name="title_activity_food_exchanged">FoodExchangedActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_daily_needs">DailyNeedsActivity</string>
+    <string name="login_welcome">Selamat Datang di</string>
+    <string name="login_name_placeholder">Nama Anda</string>
+    <string name="login_name">Masukkan Nama</string>
+    <string name="login_age_placeholder">10 Tahun</string>
+    <string name="login_age">Masukkan Umur</string>
+    <string name="login_button">Masuk</string>
 </resources>

@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -79,12 +80,12 @@ fun LoginScreen(
             .padding(8.dp, 8.dp),
     ) {
         Text(
-            text = "Selamat Datang di",
+            text = stringResource(R.string.login_welcome),
             style = MaterialTheme.typography.h6,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Pedionutricare",
+            text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.h4,
             fontWeight = FontWeight.Light,
             modifier = modifier.padding(8.dp)
@@ -92,7 +93,7 @@ fun LoginScreen(
         val painter = painterResource(R.drawable.img_app_logo_pedionutricare)
         Image(
             painter = painter,
-            contentDescription = "PedioNutriCare Logo",
+            contentDescription = stringResource(R.string.app_name),
             modifier = modifier
                 .size(250.dp),
             contentScale = ContentScale.Fit
@@ -108,13 +109,14 @@ fun LoginScreen(
                         .filter { it.isLetter().or(it.isWhitespace()) }
                 }
             },
-            placeholder = { Text(text = "Nama Anda") },
-            label = { Text("Masukkan Nama") },
+            placeholder = { Text(text = stringResource(R.string.login_name_placeholder)) },
+            label = { Text(stringResource(R.string.login_name)) },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Yellow_Deep,
                 unfocusedBorderColor = DarkGray,
                 focusedLabelColor = Yellow_Deep
             ),
+            maxLines = 1,
             modifier = Modifier
                 .padding(16.dp, 0.dp, 16.dp, 0.dp)
                 .fillMaxWidth()
@@ -128,8 +130,8 @@ fun LoginScreen(
                     age.value = value.filter { it.isDigit() }
                 }
             },
-            placeholder = { Text(text = "10 Tahun") },
-            label = { Text("Masukkan Umur") },
+            placeholder = { Text(text = stringResource(R.string.login_age_placeholder)) },
+            label = { Text(stringResource(R.string.login_age)) },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Yellow_Deep,
                 unfocusedBorderColor = DarkGray,
@@ -164,7 +166,7 @@ fun LoginScreen(
                 backgroundColor = Yellow_Deep
             )
         ) {
-            Text(text = "Masuk", textAlign = TextAlign.Center)
+            Text(text = stringResource(R.string.login_button), textAlign = TextAlign.Center)
         }
     }
 }
