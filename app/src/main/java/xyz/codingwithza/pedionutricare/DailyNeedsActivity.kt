@@ -64,10 +64,14 @@ fun DailyNeedsScreen(
         }
     ) {
         val context = LocalContext.current
-        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also { (context as? Activity)?.requestedOrientation = it }
+        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT.also {
+            (context as? Activity)?.requestedOrientation = it
+        }
 
         LazyColumn(
-            modifier.fillMaxSize().background(Yellow_Awake)
+            modifier
+                .fillMaxSize()
+                .background(Yellow_Awake)
         ) {
             item {
                 DailyNeeds(context)
@@ -166,12 +170,14 @@ fun DailyNeeds(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     genderOptions.forEach {
-                        DropdownMenuItem(onClick = {
-                            simpleGender = it
-                            isSimpleDropDownExpanded = false
-                            isResultCardVisible = false
-                        }, modifier = Modifier
-                            .wrapContentWidth()) { Text(it) }
+                        DropdownMenuItem(
+                            onClick = {
+                                simpleGender = it
+                                isSimpleDropDownExpanded = false
+                                isResultCardVisible = false
+                            }, modifier = Modifier
+                                .wrapContentWidth()
+                        ) { Text(it) }
                     }
                 }
             }
@@ -181,11 +187,9 @@ fun DailyNeeds(
                 onValueChange = { value ->
                     if (value.length <= 4) {
                         weight = value.takeIf { it.contains(",") }
-                            ?.replace(",", ".") ?:
-                            value.takeIf { it.contains("-") }
-                                ?.replace("-", "") ?:
-                            value.takeIf { it.contains(" ") }
-                                ?.replace(" ", "") ?: value
+                            ?.replace(",", ".") ?: value.takeIf { it.contains("-") }
+                            ?.replace("-", "") ?: value.takeIf { it.contains(" ") }
+                            ?.replace(" ", "") ?: value
                     }
                     isResultCardVisible = false
                 },
@@ -212,7 +216,7 @@ fun DailyNeeds(
                 onClick = {
                     isResultCardVisible = true
                     isGenderFemale = simpleGender == genderOptions[1]
-                    chosenWeight =  if (weight.isNotEmpty())
+                    chosenWeight = if (weight.isNotEmpty())
                         weight.toDouble() else 0.0
                     energy = getEnergyByBMR(userAge.value, chosenWeight, isGenderFemale).toInt()
                     protein = (((12.0 / 100) * energy) / 4).roundToInt()
@@ -302,7 +306,7 @@ fun DailyNeeds(
     }
 }
 
-fun getDailyImage(energy: Int) : Int {
+fun getDailyImage(energy: Int): Int {
     return when (energy) {
         in 0..1000 -> R.drawable.img_eng_1000
         in 1001..1250 -> R.drawable.img_eng_1251
@@ -322,11 +326,13 @@ fun getEnergyByBMR(age: Int, weight: Double, isFemale: Boolean): Number {
                 ((61 * weight - 51) * additionalFactor16)
             else
                 ((60.9 * weight - 54) * additionalFactor16)
+
         in 3..9 ->
             if (isFemale)
                 ((22.5 * weight + 499) * additionalFactor16)
             else
                 ((22.7 * weight + 495) * additionalFactor16)
+
         else ->
             if (isFemale)
                 ((12.2 * weight + 746) * additionalFactor14)
