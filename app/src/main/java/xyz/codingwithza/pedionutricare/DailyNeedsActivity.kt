@@ -63,6 +63,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.datastore.StoreUserData
 import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
+import xyz.codingwithza.pedionutricare.ui.theme.Gray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
@@ -230,7 +231,7 @@ fun DailyNeeds(
                 label = { Text(stringResource(R.string.daily_weight)) },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = Yellow_Deep,
-                    unfocusedBorderColor = DarkGray,
+                    unfocusedBorderColor = Gray,
                     focusedLabelColor = Yellow_Deep
                 ),
                 modifier = Modifier
