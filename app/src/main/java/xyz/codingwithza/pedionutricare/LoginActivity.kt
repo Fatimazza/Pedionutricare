@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import xyz.codingwithza.pedionutricare.datastore.StoreUserData
 import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
+import xyz.codingwithza.pedionutricare.ui.theme.Gray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
@@ -114,12 +115,16 @@ fun LoginScreen(
                         .filter { it.isLetter().or(it.isWhitespace()) }
                 }
             },
-            placeholder = { Text(text = stringResource(R.string.login_name_placeholder)) },
+            placeholder = { Text(
+                text = stringResource(R.string.login_name_placeholder),
+                color = Gray
+            ) },
             label = { Text(stringResource(R.string.login_name)) },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Yellow_Deep,
                 unfocusedBorderColor = DarkGray,
-                focusedLabelColor = Yellow_Deep
+                unfocusedLabelColor = Gray,
+                focusedLabelColor = Yellow_Deep,
             ),
             maxLines = 1,
             singleLine = true,
@@ -144,11 +149,14 @@ fun LoginScreen(
                     age.value = value.filter { it.isDigit() }
                 }
             },
-            placeholder = { Text(text = stringResource(R.string.login_age_placeholder)) },
+            placeholder = { Text(
+                text = stringResource(R.string.login_age_placeholder),
+                color = Gray) },
             label = { Text(stringResource(R.string.login_age)) },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Yellow_Deep,
                 unfocusedBorderColor = DarkGray,
+                unfocusedLabelColor = Gray,
                 focusedLabelColor = Yellow_Deep
             ),
             modifier = Modifier

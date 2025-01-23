@@ -13,6 +13,7 @@ val YellowVariant = Color(0xFFFFDE9F)
 val Coral = Color(0xFFF3A397)
 val White = Color(0xFFFFFFFF)
 val MintGreen = Color(0xFFACD6B8)
+val Gray = Color(0xFF808080)
 val DarkGray = Color(0xFF2B2B2D)
 
 val DarkCoral = Color(0xFFF7A374)
