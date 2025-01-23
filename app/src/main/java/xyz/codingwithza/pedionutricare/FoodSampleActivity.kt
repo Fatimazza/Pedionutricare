@@ -31,8 +31,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.datastore.StoreUserData
+import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow
 
 class FoodSampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,7 +86,8 @@ fun FoodSample(
 
     Card(
         modifier.padding(8.dp),
-        elevation = 4.dp
+        elevation = 4.dp,
+        backgroundColor = Yellow
     ) {
         Column(
             modifier.padding(4.dp)
@@ -93,6 +96,7 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
+                color = DarkGray,
                 text = stringResource(R.string.sample_name, userName.value),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Normal,
@@ -100,6 +104,7 @@ fun FoodSample(
                 modifier = modifier.fillMaxWidth(),
             )
             Text(
+                color = DarkGray,
                 text = stringResource(R.string.sample_age, userAge.value),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Normal,
@@ -110,6 +115,7 @@ fun FoodSample(
                 modifier = modifier.height(16.dp)
             )
             Text(
+                color = DarkGray,
                 text = stringResource(R.string.sample_menu_titile, stringResource(id = getFoodTitle(userAge.value))),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
