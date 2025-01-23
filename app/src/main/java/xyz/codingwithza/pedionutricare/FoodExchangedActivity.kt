@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -45,7 +47,9 @@ import androidx.compose.ui.unit.sp
 import xyz.codingwithza.pedionutricare.model.ExchangeFood
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodDataSource
 import xyz.codingwithza.pedionutricare.model.ExchangeFoodImage
+import xyz.codingwithza.pedionutricare.ui.theme.DarkGray
 import xyz.codingwithza.pedionutricare.ui.theme.PedionutricareTheme
+import xyz.codingwithza.pedionutricare.ui.theme.Yellow
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Awake
 import xyz.codingwithza.pedionutricare.ui.theme.Yellow_Deep
 
@@ -93,12 +97,14 @@ fun FoodExchangedScreen(
 @Composable
 fun FoodExchangedItem(
     data: ExchangeFood,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    darkTheme: Boolean = isSystemInDarkTheme()
 ) {
     var expanded by remember { mutableStateOf(false) }
     Card(
         modifier = modifier.padding(8.dp),
-        elevation = 4.dp
+        elevation = 4.dp,
+        backgroundColor = if (darkTheme) Yellow else MaterialTheme.colors.surface
     ) {
         Column {
             Row(
@@ -109,6 +115,7 @@ fun FoodExchangedItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
+                    color = DarkGray,
                     text = stringResource(id = data.title),
                     textAlign = TextAlign.Justify,
                     fontWeight = FontWeight.Bold,
@@ -117,7 +124,8 @@ fun FoodExchangedItem(
                 Spacer(Modifier.weight(1f))
                 FoodExchangedButton(
                     expanded = expanded,
-                    onClick = { expanded = !expanded }
+                    onClick = { expanded = !expanded },
+                    darkTheme = darkTheme
                 )
             }
             if (expanded) {
@@ -158,12 +166,13 @@ fun ExchangedFoodDesc(
 private fun FoodExchangedButton(
     expanded: Boolean,
     onClick: () -> Unit,
+    darkTheme: Boolean
 ) {
     IconButton(onClick = onClick) {
         Icon(
             imageVector = if (expanded) Icons.Filled.ExpandLess
             else Icons.Filled.ExpandMore,
-            tint = Yellow_Deep,
+            tint = if (darkTheme) DarkGray else Yellow_Deep,
             contentDescription = stringResource(R.string.exchanged_food_expand_button)
         )
     }
