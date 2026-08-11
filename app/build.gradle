@@ -13,8 +13,8 @@ android {
         applicationId = "xyz.codingwithza.pedionutricare"
         minSdk = 23
         targetSdk = 36
-        versionCode = 9
-        versionName = "1.0.13"
+        versionCode = 10
+        versionName = "1.0.14"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
