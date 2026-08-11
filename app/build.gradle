@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "xyz.codingwithza.pedionutricare"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 9
         versionName = "1.0.13"
 
